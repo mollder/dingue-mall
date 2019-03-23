@@ -1,6 +1,6 @@
-# frontend
+# ingue
 
-> board project
+> A Vue.js project
 
 ## Build Setup
 
