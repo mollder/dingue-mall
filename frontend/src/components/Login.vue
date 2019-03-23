@@ -3,23 +3,25 @@
     <h1> Ingue Mall</h1>
     <b-form id = "formGroup">
       <b-form-group id ="inputGroup">
-        <b-form-input
-          id="userIdInput"
-          class="userInput"
-          type="text"
-          v-model="userId"
-          required
-          placeholder="아이디"
-        />
+        <div id="idForm">
+          <b-form-input
+            id="userIdInput"
+            class="userInput"
+            type="text"
+            v-model="userId"
+            placeholder="아이디"
+          />
+        </div>
 
-        <b-form-input
-          id="userPasswordInput"
-          class="userInput"
-          type="password"
-          v-model="userPassword"
-          required
-          placeholder="비밀번호"
-        />
+        <div id="passwordForm">
+          <b-form-input
+            id="userPasswordInput"
+            class="userInput"
+            type="password"
+            v-model="userPassword"
+            placeholder="비밀번호"
+          />
+        </div>
 
         <input type="submit" title="로그인" value="로그인" id="loginBtn"/>
       </b-form-group>
@@ -46,7 +48,7 @@
     font-size: 2.5em;
     color: #0000ff;
     width : 200px;
-    margin: 50px auto 50px auto;
+    margin: 110px auto 50px auto;
   }
 
   .userInput {
@@ -57,6 +59,7 @@
   #formGroup {
     width : 460px;
     margin: 0 auto;
+    font-family: Helvetica,Dotum,sans-serif;
   }
 
   #loginBtn {
@@ -67,5 +70,9 @@
     margin: 30px 0 14px;
     color: #fff;
     font-size : 20px;
+    font-weight: 700;
+    border: none;
+    border-radius: 0;
+    -webkit-appearance: none;
   }
 </style>
