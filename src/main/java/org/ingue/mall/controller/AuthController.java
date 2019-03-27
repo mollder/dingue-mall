@@ -12,8 +12,10 @@ import javax.servlet.http.HttpSession;
 public class AuthController {
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public void login(@RequestBody AuthenticationRequest authenticationRequest, HttpSession httpSession) {
+    public boolean login(@RequestBody AuthenticationRequest authenticationRequest, HttpSession httpSession) {
         System.out.println(authenticationRequest.getUserId());
         System.out.println(authenticationRequest.getUserPassword());
+
+        return true;
     }
 }

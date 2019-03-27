@@ -22,8 +22,10 @@
             placeholder="비밀번호"
           />
         </div>
+        <input type="button" title="로그인" value="로그인" id="loginBtn" @click="login"/>
       </b-form-group>
     </b-form>
+
   </div>
 </template>
 
@@ -41,19 +43,18 @@
       },
       methods: {
         login() {
-          alert("haha");
+          console.log(this.userId);
+          console.log(this.userPassword);
           loginByUserInfo({
             id : this.userId,
             pw : this.userPassword,
           }).then(response => {
             console.log(response.data);
+            if (response.data === true) {
+              this.$router.push('/success');
+            }
           });
         },
-        haha() {
-          console.log("haha");
-          console.log(this.userId);
-          console.log(this.userPassword);
-        }
       }
     }
 </script>

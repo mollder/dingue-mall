@@ -1,10 +1,12 @@
+import axios from 'axios'
+
 export function loginByUserInfo(userData) {
   return axios({
     method: 'post',
     url: './login',
     data: {
-      memberId: userData.id,
-      memberPassword: userData.pw,
+      userId : userData.id,
+      userPassword: userData.pw,
     }
   });
 };
