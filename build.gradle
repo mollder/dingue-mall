@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'net.ltgt.apt' version '0.10'
 }
 
 group 'org.ingue.mall'
@@ -12,5 +13,10 @@ repositories {
 }
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.0.3.RELEASE'
+    compile group: 'mysql', name: 'mysql-connector-java', version: '8.0.13'
+
+    compileOnly 'org.projectlombok:lombok:1.18.4'
+
+    apt 'org.projectlombok:lombok:1.18.4'
 }

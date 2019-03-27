@@ -1,12 +1,13 @@
 var path = require('path')
 var webpack = require('webpack')
+var htmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: './src/main.js',
   output: {
     path: path.resolve(__dirname, '../src/main/resources/static/dist'),
     publicPath: '/dist/',
-    filename: 'build.js'
+    filename: '[name].[chunkhash].js'
   },
   module: {
     rules: [
@@ -83,6 +84,13 @@ module.exports = {
   performance: {
     hints: false
   },
+  plugins: [
+    new htmlWebpackPlugin({
+      template: path.join(__dirname, '../src/main/resources/static/dist/index.html'),
+      inject: true,
+      filename: path.join(__dirname, '../src/main/resources/static/index.html')
+    })
+  ],
   devtool: '#eval-source-map'
 }
 

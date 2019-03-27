@@ -22,14 +22,14 @@
             placeholder="비밀번호"
           />
         </div>
-
-        <input type="submit" title="로그인" value="로그인" id="loginBtn"/>
       </b-form-group>
     </b-form>
   </div>
 </template>
 
 <script>
+  import {loginByUserInfo} from '../api/auth';
+
     export default {
       name: "Login",
 
@@ -39,6 +39,22 @@
             userPassword : '',
           };
       },
+      methods: {
+        login() {
+          alert("haha");
+          loginByUserInfo({
+            id : this.userId,
+            pw : this.userPassword,
+          }).then(response => {
+            console.log(response.data);
+          });
+        },
+        haha() {
+          console.log("haha");
+          console.log(this.userId);
+          console.log(this.userPassword);
+        }
+      }
     }
 </script>
 
@@ -64,7 +80,8 @@
 
   #loginBtn {
     display: block;
-    width: 100%;
+    width : 460px;
+    font-family: Helvetica,Dotum,sans-serif;
     height: 61px;
     background-color: #0000ff;
     margin: 30px 0 14px;
