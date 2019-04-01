@@ -1,4 +1,4 @@
-package org.ingue.mall.config;
+package org.ingue.mall.config.springSecurity;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 

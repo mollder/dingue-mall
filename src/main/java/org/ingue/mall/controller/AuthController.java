@@ -13,6 +13,7 @@ public class AuthController {
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public boolean login(@RequestBody AuthenticationRequest authenticationRequest, HttpSession httpSession) {
+
         System.out.println(authenticationRequest.getUserId());
         System.out.println(authenticationRequest.getUserPassword());
 

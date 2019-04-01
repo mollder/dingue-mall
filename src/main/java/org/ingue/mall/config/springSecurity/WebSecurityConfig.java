@@ -1,4 +1,4 @@
-package org.ingue.mall.config;
+package org.ingue.mall.config.springSecurity;
 
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -7,7 +7,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    private static final String[] AUTH_WHITELIST = {
+    private final String[] AUTH_WHITELIST = {
             "/",
             "/static/**",
             "/dist/**",
