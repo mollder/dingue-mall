@@ -1,5 +1,6 @@
-package org.ingue.mall.config.springSecurity;
+package org.ingue.mall.springSecurity.config.initializer;
 
+import org.ingue.mall.springSecurity.config.WebSecurityConfig;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 public class MvcWebApplicationInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {

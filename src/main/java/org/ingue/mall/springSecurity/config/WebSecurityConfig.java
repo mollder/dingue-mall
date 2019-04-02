@@ -1,11 +1,17 @@
-package org.ingue.mall.config.springSecurity;
+package org.ingue.mall.springSecurity.config;
 
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.ProviderManager;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+
+    DaoAuthenticationProvider daoAuthenticationProvider;
+    ProviderManager providerManager;
 
     private final String[] AUTH_WHITELIST = {
             "/",
@@ -24,4 +30,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .loginPage("/")
                 .permitAll();
     }
+
+
 }

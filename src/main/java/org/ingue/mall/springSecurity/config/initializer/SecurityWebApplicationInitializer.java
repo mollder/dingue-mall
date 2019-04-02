@@ -1,4 +1,4 @@
-package org.ingue.mall.config.springSecurity;
+package org.ingue.mall.springSecurity.config.initializer;
 
 import org.springframework.security.web.context.AbstractSecurityWebApplicationInitializer;
 

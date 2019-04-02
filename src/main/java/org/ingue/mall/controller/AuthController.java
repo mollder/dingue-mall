@@ -6,13 +6,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.servlet.http.HttpSession;
-
 @RestController
 public class AuthController {
 
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public boolean login(@RequestBody AuthenticationRequest authenticationRequest, HttpSession httpSession) {
+    @RequestMapping(value = "/auth", method = RequestMethod.POST)
+    public boolean login(@RequestBody AuthenticationRequest authenticationRequest) {
 
         System.out.println(authenticationRequest.getUserId());
         System.out.println(authenticationRequest.getUserPassword());
