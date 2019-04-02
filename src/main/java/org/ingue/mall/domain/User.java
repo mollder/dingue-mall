@@ -4,12 +4,15 @@ import lombok.Builder;
 import lombok.Getter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 import java.time.LocalDateTime;
 import java.util.Collection;
 
@@ -35,10 +38,14 @@ public class User implements UserDetails {
     @Column(nullable = false)
     private LocalDateTime updateAt;
 
+    @Autowired
+    @Transient
+    private PasswordEncoder passwordEncoder;
+
     @Builder
     public User(String userId, String userPassword, String userEmail, String userName, String userPhoneNum) {
         this.userId = userId;
-        this.userPassword = userPassword;
+        this.userPassword = passwordEncoder.encode(userPassword);
         this.userEmail = userEmail;
         this.userName = userName;
         this.userPhoneNum = userPhoneNum;
