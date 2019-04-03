@@ -1,7 +1,7 @@
 <template>
   <div id="loginDiv">
     <h1> Ingue Mall</h1>
-    <b-form id = "formGroup">
+    <b-form id = "formGroup" action ="./auth" method="post">
       <b-form-group id ="inputGroup">
         <div id="idForm">
           <b-form-input
@@ -22,7 +22,7 @@
             placeholder="비밀번호"
           />
         </div>
-        <input type="button" title="로그인" value="로그인" id="loginBtn" @click="login"/>
+        <input type="submit" title="로그인" value="로그인" id="loginBtn"/>
       </b-form-group>
     </b-form>
 
@@ -49,7 +49,7 @@
             id : this.userId,
             pw : this.userPassword,
           }).then(response => {
-            console.log(response.data);
+            console.log(response);
             if (response.data === true) {
               this.$router.push('/success');
             }
