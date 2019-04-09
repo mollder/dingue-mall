@@ -1,11 +1,12 @@
 <template>
   <div id="loginDiv">
     <h1> Ingue Mall</h1>
-    <b-form id = "formGroup" action ="./auth" method="post">
+    <b-form id = "formGroup" action ="/auth" method="post">
       <b-form-group id ="inputGroup">
         <div id="idForm">
           <b-form-input
-            id="userIdInput"
+            id="username"
+            name="username"
             class="userInput"
             type="text"
             v-model="userId"
@@ -15,7 +16,8 @@
 
         <div id="passwordForm">
           <b-form-input
-            id="userPasswordInput"
+            id="password"
+            name="password"
             class="userInput"
             type="password"
             v-model="userPassword"
