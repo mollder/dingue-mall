@@ -1,6 +1,6 @@
 <template>
   <div id="loginDiv">
-    <h1> Ingue Mall</h1>
+    <h1> Ding Board </h1>
     <b-form id = "formGroup" action ="/auth" method="post">
       <b-form-group id ="inputGroup">
         <div id="idForm">

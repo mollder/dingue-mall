@@ -91,7 +91,7 @@ module.exports = {
       filename: path.join(__dirname, '../src/main/resources/static/index.html')
     })
   ],
-  devtool: '#eval-source-map'
+  devtool: 'source-map'
 }
 
 if (process.env.NODE_ENV === 'production') {

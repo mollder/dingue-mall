@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Login from '../components/Login';
-import Redirect from '../components/Redirect';
+import Layout from '../components/Layout';
 
 Vue.use(Router);
 
@@ -9,14 +9,14 @@ export default new Router({
   mode: 'history',
   routes: [
     {
-      path: '/',
+      path: '/main',
       name: Login,
       component: Login,
     },
     {
-      path: '/success',
-      name: 'Redirect',
-      component: Redirect,
+      path: '/',
+      name: 'Layout',
+      component: Layout,
     }
   ],
 });
