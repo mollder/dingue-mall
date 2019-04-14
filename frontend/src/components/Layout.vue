@@ -1,25 +1,29 @@
 <template>
-  <div>
+  <div class="layout-div">
     <b-navbar variant="faded" type="light">
       <b-navbar-nav>
         <b-nav-text>게시판····&nbsp;&nbsp;&nbsp;&nbsp;l&nbsp;&nbsp;&nbsp;&nbsp;내가 올리고 싶은 글을 자유롭게 올리는 곳</b-nav-text>
+      </b-navbar-nav>
 
+      <b-navbar-nav class="ml-auto">
         <b-nav-item-dropdown text="목록 10개" right>
           <b-dropdown-item href="#">10개</b-dropdown-item>
           <b-dropdown-item href="#">20개</b-dropdown-item>
           <b-dropdown-item href="#">30개</b-dropdown-item>
           <b-dropdown-item href="#">40개</b-dropdown-item>
         </b-nav-item-dropdown>
+
+        <b-link class="logout">로그아웃</b-link>
       </b-navbar-nav>
     </b-navbar>
 
     <b-table :items="items" :fields="fields" id="board-table"></b-table>
 
     <b-row>
-      <b-col>
-        <b-row>
-          <b-col>
-            <b-dropdown id="dropdown-1" text="제목+내용" class="m-md-2">
+      <b-col cols="4">
+        <b-row align-h="start" class="search-row">
+          <b-col cols="3">
+            <b-dropdown id="dropdown-1" text="제목+내용" width="100%">
               <b-dropdown-item>제목+내용</b-dropdown-item>
               <b-dropdown-item>글제목</b-dropdown-item>
               <b-dropdown-item>글쓴이</b-dropdown-item>
@@ -29,17 +33,17 @@
             </b-dropdown>
           </b-col>
 
-          <b-col>
-            <b-form-input></b-form-input>
+          <b-col cols="6">
+            <b-form-input width="100%"></b-form-input>
           </b-col>
 
-          <b-col>
-            <b-button variant="outline-primary">검색</b-button>
+          <b-col cols="3" id ="search-button">
+            <b-button variant="outline-primary" width="100%">검색</b-button>
           </b-col>
         </b-row>
       </b-col>
 
-      <b-col>
+      <b-col cols="7">
         <b-pagination
           v-model="currentPage"
           :total-rows="rows"
@@ -48,7 +52,7 @@
         ></b-pagination>
       </b-col>
 
-      <b-col>
+      <b-col cols="1">
         <b-button variant="outline-primary">글쓰기</b-button>
       </b-col>
     </b-row>
@@ -81,5 +85,22 @@
 </script>
 
 <style scoped>
+
+  .layout-div {
+    margin: 10px 30px 30px ;
+  }
+
+  .logout {
+    padding-top: 7px;
+  }
+
+  #board-table {
+    line-height: 1;
+  }
+
+  #search-button {
+    padding-left: 0;
+  }
+
 
 </style>
