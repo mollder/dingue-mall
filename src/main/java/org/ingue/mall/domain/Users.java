@@ -9,13 +9,9 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
+import java.util.*;
 
 @Entity
 @Getter
@@ -23,7 +19,8 @@ import java.util.List;
 public class Users implements UserDetails {
 
     @Id
-    private String userId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long userId;
 
     @Column(nullable = false)
     private String userPassword;
@@ -31,7 +28,17 @@ public class Users implements UserDetails {
     @Column(nullable = false)
     private String userNickName;
 
+    @Column(unique = true, nullable = false)
+    private String userEmail;
+
+    @Column(unique = true)
     private String userPhoneNum;
+
+    @OneToMany(mappedBy = "user")
+    private Set<Postings> postingsSet = new HashSet<>();
+
+    @OneToMany(mappedBy = "user")
+    private Set<Comments> commentsSet = new HashSet<>();
 
     @CreationTimestamp
     @Column(nullable = false, updatable = false)
@@ -41,9 +48,11 @@ public class Users implements UserDetails {
     @Column(nullable = false)
     private LocalDateTime updateAt;
 
+    private String developer;
+
     @Builder
-    public Users(String userId, String userPassword, String userNickName, String userPhoneNum) {
-        this.userId = userId;
+    public Users(String userEmail, String userPassword, String userNickName, String userPhoneNum) {
+        this.userEmail = userEmail;
         this.userPassword = userPassword;
         this.userNickName = userNickName;
         this.userPhoneNum = userPhoneNum;
@@ -63,7 +72,7 @@ public class Users implements UserDetails {
 
     @Override
     public String getUsername() {
-        return this.getUserId();
+        return this.getUserEmail();
     }
 
     @Override

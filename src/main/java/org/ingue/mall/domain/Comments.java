@@ -1,13 +1,17 @@
 package org.ingue.mall.domain;
 
-import lombok.Builder;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
+@Table
+@NoArgsConstructor
 public class Comments {
 
     @Id
@@ -16,7 +20,13 @@ public class Comments {
 
     private String commentContent;
 
-    private long recommendCount;
+    private int commentRecommend;
+
+    @ManyToOne
+    private Postings posting;
+
+    @ManyToOne
+    private Users user;
 
     @CreationTimestamp
     @Column(nullable = false, updatable = false)
@@ -26,8 +36,10 @@ public class Comments {
     @Column(nullable = false)
     private LocalDateTime updateAt;
 
+    private String developer;
+
     public Comments(String commentContent) {
         this.commentContent = commentContent;
-        this.recommendCount = 0;
+        this.commentRecommend = 0;
     }
 }

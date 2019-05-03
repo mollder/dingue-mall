@@ -12,6 +12,8 @@ public class SimpleTest {
         Integer a = 100;
         Integer b = 100;
 
-        assertThat(a == b).isEqualTo(true);
+        boolean c = (a == b);
+
+        assertThat(c).isEqualTo(true);
     }
 }
