@@ -18,8 +18,7 @@ import java.util.*;
 @NoArgsConstructor
 public class Users implements UserDetails {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long userId;
 
     @Column(nullable = false)
@@ -34,10 +33,10 @@ public class Users implements UserDetails {
     @Column(unique = true)
     private String userPhoneNum;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private Set<Postings> postingsSet = new HashSet<>();
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private Set<Comments> commentsSet = new HashSet<>();
 
     @CreationTimestamp
@@ -49,6 +48,15 @@ public class Users implements UserDetails {
     private LocalDateTime updateAt;
 
     private String developer;
+
+    public void addPosting(Postings posting) {
+        this.getPostingsSet().add(posting);
+        posting.setUsers(this);
+    }
+
+    public void addComments(Comments comment) {
+        this.getCommentsSet().add(comment);
+    }
 
     @Builder
     public Users(String userEmail, String userPassword, String userNickName, String userPhoneNum) {

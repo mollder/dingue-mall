@@ -1,8 +1,11 @@
 package org.ingue.mall.domain;
 
+import lombok.Builder;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.ingue.mall.pojo.Board;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -10,23 +13,24 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table
+@Getter
 @NoArgsConstructor
 public class Postings {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long postingId;
 
+    @Column(nullable = false)
     private String postingTitle;
 
     private String postingContent;
 
-    private int postingRecommend;
+    private int postingRecommend = 0;
 
-    private String boardName;
+    @Enumerated(EnumType.STRING)
+    private Board boardName = Board.USER;
 
-    @OneToMany(mappedBy = "posting")
+    @OneToMany(mappedBy = "posting", cascade = CascadeType.ALL)
     private Set<Comments> commentsSet = new HashSet<>();
 
     @ManyToOne
@@ -42,5 +46,20 @@ public class Postings {
 
     private String developer;
 
+    @Builder
+    public Postings(String postingTitle, String postingContent, int postingRecommend) {
+        this.postingTitle = postingTitle;
+        this.postingContent = postingContent;
+        this.postingRecommend = postingRecommend;
+    }
+
+    public void setUsers(Users user) {
+        this.user = user;
+    }
+
+    public void addComments(Comments comment) {
+        this.getCommentsSet().add(comment);
+        comment.setPosting(this);
+    }
 
 }

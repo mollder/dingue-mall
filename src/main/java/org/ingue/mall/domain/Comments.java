@@ -14,13 +14,12 @@ import java.util.Set;
 @NoArgsConstructor
 public class Comments {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long commentId;
 
     private String commentContent;
 
-    private int commentRecommend;
+    private int commentRecommend = 0;
 
     @ManyToOne
     private Postings posting;
@@ -36,10 +35,18 @@ public class Comments {
     @Column(nullable = false)
     private LocalDateTime updateAt;
 
+    @Column(nullable = false)
     private String developer;
 
     public Comments(String commentContent) {
         this.commentContent = commentContent;
-        this.commentRecommend = 0;
+    }
+
+    public void setPosting(Postings posting) {
+        this.posting = posting;
+    }
+
+    public void setUser(Users user) {
+        this.user = user;
     }
 }
