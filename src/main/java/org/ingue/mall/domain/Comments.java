@@ -1,25 +1,28 @@
 package org.ingue.mall.domain;
 
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
 @Table
 @NoArgsConstructor
+@Getter
+@EqualsAndHashCode(of = "commentId")
 public class Comments {
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long commentId;
 
     private String commentContent;
 
-    private int commentRecommend = 0;
+    private int commentRecommend;
 
     @ManyToOne
     private Postings posting;

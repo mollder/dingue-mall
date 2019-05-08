@@ -1,6 +1,7 @@
 package org.ingue.mall.domain;
 
 import lombok.Builder;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
@@ -15,9 +16,11 @@ import java.util.Set;
 @Entity
 @Getter
 @NoArgsConstructor
+@EqualsAndHashCode(of = "postingId")
 public class Postings {
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long postingId;
 
     @Column(nullable = false)
@@ -25,7 +28,7 @@ public class Postings {
 
     private String postingContent;
 
-    private int postingRecommend = 0;
+    private int postingRecommend;
 
     @Enumerated(EnumType.STRING)
     private Board boardName = Board.USER;
@@ -61,5 +64,4 @@ public class Postings {
         this.getCommentsSet().add(comment);
         comment.setPosting(this);
     }
-
 }

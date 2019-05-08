@@ -1,6 +1,7 @@
 package org.ingue.mall.domain;
 
 import lombok.Builder;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
@@ -16,9 +17,11 @@ import java.util.*;
 @Entity
 @Getter
 @NoArgsConstructor
+@EqualsAndHashCode(of = "userId")
 public class Users implements UserDetails {
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long userId;
 
     @Column(nullable = false)
