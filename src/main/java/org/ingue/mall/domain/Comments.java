@@ -43,6 +43,7 @@ public class Comments {
 
     public Comments(String commentContent) {
         this.commentContent = commentContent;
+        developer = "ingue";
     }
 
     public void setPosting(Postings posting) {

@@ -50,10 +50,10 @@ public class Postings {
     private String developer;
 
     @Builder
-    public Postings(String postingTitle, String postingContent, int postingRecommend) {
+    public Postings(String postingTitle, String postingContent) {
         this.postingTitle = postingTitle;
         this.postingContent = postingContent;
-        this.postingRecommend = postingRecommend;
+        developer = "ingue";
     }
 
     public void setUsers(Users user) {

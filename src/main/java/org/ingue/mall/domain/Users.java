@@ -67,6 +67,7 @@ public class Users implements UserDetails {
         this.userPassword = userPassword;
         this.userNickName = userNickName;
         this.userPhoneNum = userPhoneNum;
+        developer = "ingue";
     }
 
     @Override

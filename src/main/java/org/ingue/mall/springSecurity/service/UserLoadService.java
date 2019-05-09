@@ -2,7 +2,7 @@ package org.ingue.mall.springSecurity.service;
 
 import lombok.RequiredArgsConstructor;
 import org.ingue.mall.domain.Users;
-import org.ingue.mall.repository.UserRepository;
+import org.ingue.mall.repository.UsersRepository;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -14,15 +14,15 @@ import org.springframework.util.ObjectUtils;
 @RequiredArgsConstructor
 public class UserLoadService implements UserDetailsService {
 
-    private final UserRepository userRepository;
+    private final UsersRepository usersRepository;
 
     Authentication authentication;
 
    @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Users users = userRepository.findUserByUserId(username);
+    public UserDetails loadUserByUsername(String userEmail) throws UsernameNotFoundException {
+        Users users = usersRepository.findUsersByUserEmail(userEmail);
 
-        if(ObjectUtils.isEmpty(users)) throw new UsernameNotFoundException(username);
+        if(ObjectUtils.isEmpty(users)) throw new UsernameNotFoundException(userEmail);
         //ObjectUtil 사용, assert
 
         return users;

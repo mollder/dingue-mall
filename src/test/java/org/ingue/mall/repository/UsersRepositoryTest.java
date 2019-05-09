@@ -9,7 +9,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
-public class UserRepositoryTest {
+public class UsersRepositoryTest {
 
     @Test
     public void IntegerTest() {
