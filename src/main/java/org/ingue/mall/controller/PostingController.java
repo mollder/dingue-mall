@@ -2,10 +2,12 @@ package org.ingue.mall.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.ingue.mall.domain.Postings;
+import org.ingue.mall.domain.domainResource.PostingsResource;
 import org.ingue.mall.domain.dto.PostingsDto;
 import org.ingue.mall.repository.PostingsRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.hateoas.MediaTypes;
+import org.springframework.hateoas.mvc.ControllerLinkBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
@@ -35,8 +37,13 @@ public class PostingController {
         Postings postings = modelMapper.map(postingsDto, Postings.class);
         Postings newPostings = postingsRepository.save(postings);
 
-        URI createdUri = linkTo(PostingController.class).slash(newPostings.getPostingId()).toUri();
+        ControllerLinkBuilder selfLinkBuilder = linkTo(PostingController.class).slash(newPostings.getPostingId());
+        URI createdUri = selfLinkBuilder.toUri();
 
-        return ResponseEntity.created(createdUri).body(postings);
+        PostingsResource postingsResource = new PostingsResource(postings);
+        postingsResource.add(linkTo(PostingController.class).withRel("query-postings"));
+        postingsResource.add(selfLinkBuilder.withRel("update-postings"));
+
+        return ResponseEntity.created(createdUri).body(postingsResource);
     }
 }

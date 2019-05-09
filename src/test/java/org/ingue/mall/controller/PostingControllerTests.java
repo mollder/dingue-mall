@@ -1,6 +1,7 @@
 package org.ingue.mall.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.ingue.mall.common.TestDescription;
 import org.ingue.mall.domain.Postings;
 import org.ingue.mall.domain.Users;
 import org.junit.Test;
@@ -28,6 +29,7 @@ public class PostingControllerTests {
     ObjectMapper objectMapper;
 
     @Test
+    @TestDescription("유저가 글을 게시판에 올릴 때 성공적으로 글이 생성되는지 확인하는 테스트")
     public void createPosting() throws Exception {
 
         Postings postings = Postings.builder()
