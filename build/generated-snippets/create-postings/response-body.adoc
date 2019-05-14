@@ -1,0 +1,4 @@
+[source,options="nowrap"]
+----
+{"postingId":2,"postingTitle":"테스트제목","postingContent":"테스트글","postingRecommend":0,"boardName":"USER","commentsSet":[],"user":null,"createAt":"2019-05-14T15:14:02.703","updateAt":"2019-05-14T15:14:02.703","developer":"ingue","_links":{"self":{"href":"http://localhost:8080/api/postings/2"},"query-postings":{"href":"http://localhost:8080/api/postings"},"update-postings":{"href":"http://localhost:8080/api/postings/2"}}}
+----
