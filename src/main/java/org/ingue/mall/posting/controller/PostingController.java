@@ -6,7 +6,6 @@ import org.ingue.mall.posting.controller.dto.PostingDto;
 import org.ingue.mall.posting.PostingRepository;
 import org.ingue.mall.posting.controller.domainResource.PostingResource;
 import org.ingue.mall.posting.domain.Postings;
-import org.modelmapper.ModelMapper;
 import org.springframework.hateoas.MediaTypes;
 import org.springframework.hateoas.mvc.ControllerLinkBuilder;
 import org.springframework.http.ResponseEntity;
@@ -64,12 +63,5 @@ public class PostingController {
         postingResource.add(selfLinkBuilder.withRel("update-postings"));
 
         return ResponseEntity.ok().body(postingResource);
-    }
-
-    private Postings mappingPostings(@Valid @RequestBody PostingDto postingDto) {
-        return Postings.builder()
-                .postingTitle(postingDto.getPostingTitle())
-                .postingContent(postingDto.getPostingContent())
-                .build();
     }
 }

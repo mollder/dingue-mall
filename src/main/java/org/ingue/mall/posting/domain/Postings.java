@@ -15,6 +15,8 @@ import java.util.Set;
 @Entity
 @Getter
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @EqualsAndHashCode(of = "postingId")
 public class Postings {
 
@@ -46,14 +48,7 @@ public class Postings {
     @Column(nullable = false)
     private LocalDateTime updateAt;
 
-    private String developer;
-
-    @Builder
-    public Postings(String postingTitle, String postingContent) {
-        this.postingTitle = postingTitle;
-        this.postingContent = postingContent;
-        developer = "ingue";
-    }
+    private String developer = "ingue";
 
     public void setUsers(Users user) {
         this.user = user;

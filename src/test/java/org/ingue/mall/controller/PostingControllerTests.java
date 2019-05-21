@@ -1,7 +1,9 @@
 package org.ingue.mall.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.ingue.mall.config.common.TestDescription;
+import org.ingue.mall.posting.Board;
 import org.ingue.mall.posting.controller.dto.PostingDto;
 import org.ingue.mall.posting.domain.Postings;
 import org.ingue.mall.posting.PostingRepository;
@@ -53,6 +55,24 @@ public class PostingControllerTests {
                 .andDo(print())
                 .andExpect(status().isCreated())
         .andDo(document("create-postings"));
+    }
+
+    @Test
+    @TestDescription("받기로한 이외의 값으로 게시글을 생성하면 Bad Request 발생")
+    public void createPosting_Bad_Request() throws Exception {
+        Postings postings = Postings.builder()
+                .postingId(1L)
+                .postingContent("테스트글")
+                .postingTitle("테스트제목")
+                .boardName(Board.USER)
+                .build();
+
+        mockMvc.perform(post("/api/postings")
+                .contentType(MediaType.APPLICATION_JSON_UTF8)
+                .content(objectMapper.writeValueAsBytes(postings))
+                .accept(MediaTypes.HAL_JSON_UTF8_VALUE))
+                .andDo(print())
+                .andExpect(status().isBadRequest());
     }
 
     @Test
