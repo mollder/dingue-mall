@@ -1,5 +1,6 @@
 package org.ingue.mall.user;
 
+import com.google.common.collect.Sets;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -39,10 +40,10 @@ public class Users implements UserDetails {
     private String userPhoneNum;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private Set<Postings> postingsSet = new HashSet<>();
+    private Set<Postings> postingsSet = Sets.newHashSet();
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private Set<Comments> commentsSet = new HashSet<>();
+    private Set<Comments> commentsSet = Sets.newHashSet();
 
     @CreationTimestamp
     @Column(nullable = false, updatable = false)

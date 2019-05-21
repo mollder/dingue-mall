@@ -1,5 +1,7 @@
 package org.ingue.mall.posting.domain;
 
+import com.google.common.collect.Maps;
+import com.google.common.collect.Sets;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -35,7 +37,7 @@ public class Postings {
     private Board boardName = Board.USER;
 
     @OneToMany(mappedBy = "posting", cascade = CascadeType.ALL)
-    private Set<Comments> commentsSet = new HashSet<>();
+    private Set<Comments> commentsSet = Sets.newHashSet();
 
     @ManyToOne
     private Users user;

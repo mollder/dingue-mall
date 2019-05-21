@@ -1,6 +1,5 @@
 package org.ingue.mall.controller;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.ingue.mall.config.common.TestDescription;
 import org.ingue.mall.posting.Board;
@@ -22,6 +21,7 @@ import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.docu
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringRunner.class)
@@ -43,24 +43,24 @@ public class PostingControllerTests {
     @TestDescription("유저가 글을 게시판에 올릴 때 성공적으로 글이 생성되는지 확인하는 테스트")
     public void createPosting() throws Exception {
 
-        PostingDto postings = PostingDto.builder()
+        PostingDto posting = PostingDto.builder()
                 .postingContent("테스트글")
                 .postingTitle("테스트제목")
                 .build();
 
         mockMvc.perform(post("/api/postings")
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
-                .content(objectMapper.writeValueAsBytes(postings))
-                .accept(MediaTypes.HAL_JSON_UTF8_VALUE))
+                .content(objectMapper.writeValueAsBytes(posting))
+                .accept(MediaTypes.HAL_JSON_UTF8))
                 .andDo(print())
                 .andExpect(status().isCreated())
         .andDo(document("create-postings"));
     }
 
     @Test
-    @TestDescription("받기로한 이외의 값으로 게시글을 생성하면 Bad Request 발생")
-    public void createPosting_Bad_Request() throws Exception {
-        Postings postings = Postings.builder()
+    @TestDescription("받기로한 값 이외에 다른 값들로 글을 생성하면 Bad Request 발생")
+    public void createPosting_Bad_Request_UnReceived_Input() throws Exception {
+        Postings posting = Postings.builder()
                 .postingId(1L)
                 .postingContent("테스트글")
                 .postingTitle("테스트제목")
@@ -69,10 +69,44 @@ public class PostingControllerTests {
 
         mockMvc.perform(post("/api/postings")
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
-                .content(objectMapper.writeValueAsBytes(postings))
-                .accept(MediaTypes.HAL_JSON_UTF8_VALUE))
+                .content(objectMapper.writeValueAsBytes(posting))
+                .accept(MediaTypes.HAL_JSON_UTF8))
                 .andDo(print())
                 .andExpect(status().isBadRequest());
+    }
+
+    @Test
+    @TestDescription("글 제목을 빈 상태, 내용을 null인 상태로 글을 생성하면 Bad Request 발생")
+    public void createPosting_Bad_Request_Wrong_Input() throws Exception {
+        PostingDto posting = PostingDto.builder()
+                .postingTitle("")
+                .postingContent("테스트 내용")
+                .build();
+
+        mockMvc.perform(post("/api/postings")
+                .contentType(MediaType.APPLICATION_JSON_UTF8)
+                .content(objectMapper.writeValueAsBytes(posting))
+                .accept(MediaTypes.HAL_JSON_UTF8))
+                .andDo(print())
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$[0].objectName").exists())
+                .andExpect(jsonPath("$[0].defaultMessage").exists())
+                .andExpect(jsonPath("$[0].code").exists());
+
+        posting = PostingDto.builder()
+                .postingTitle("테스트 제목")
+                .postingContent(null)
+                .build();
+
+        mockMvc.perform(post("/api/postings")
+                .contentType(MediaType.APPLICATION_JSON_UTF8)
+                .content(objectMapper.writeValueAsBytes(posting))
+                .accept(MediaTypes.HAL_JSON_UTF8))
+                .andDo(print())
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$[0].objectName").exists())
+                .andExpect(jsonPath("$[0].defaultMessage").exists())
+                .andExpect(jsonPath("$[0].code").exists());
     }
 
     @Test
@@ -86,6 +120,7 @@ public class PostingControllerTests {
         postingRepository.save(postings);
 
         mockMvc.perform(get("/api/postings")
+                .contentType(MediaType.APPLICATION_JSON_UTF8)
                 .param("postingId", postings.getPostingId().toString()))
                 .andDo(print())
                 .andExpect(status().isOk());

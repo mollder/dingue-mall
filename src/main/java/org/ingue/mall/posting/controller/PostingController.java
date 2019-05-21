@@ -8,6 +8,7 @@ import org.ingue.mall.posting.controller.domainResource.PostingResource;
 import org.ingue.mall.posting.domain.Postings;
 import org.springframework.hateoas.MediaTypes;
 import org.springframework.hateoas.mvc.ControllerLinkBuilder;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
@@ -21,7 +22,11 @@ import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
 
 @Controller
 @RequiredArgsConstructor
-@RequestMapping(value = "/api/postings", produces = MediaTypes.HAL_JSON_UTF8_VALUE)
+@RequestMapping(
+        value = "/api/postings",
+        produces = MediaTypes.HAL_JSON_UTF8_VALUE,
+        consumes = MediaType.APPLICATION_JSON_UTF8_VALUE
+)
 public class PostingController {
 
     private final PostingRepository postingRepository;
@@ -30,7 +35,7 @@ public class PostingController {
     @PostMapping
     public ResponseEntity createPosting(@RequestBody @Valid PostingDto postingDto, Errors errors) {
         if(errors.hasErrors()) {
-            return ResponseEntity.badRequest().build();
+            return ResponseEntity.badRequest().body(errors);
         }
 
         Postings postings = postingMapper.mappingDto(postingDto);
