@@ -1,10 +1,10 @@
 package org.ingue.mall.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.ingue.mall.common.TestDescription;
-import org.ingue.mall.domain.Postings;
-import org.ingue.mall.domain.dto.PostingsDto;
-import org.ingue.mall.repository.PostingsRepository;
+import org.ingue.mall.config.common.TestDescription;
+import org.ingue.mall.posting.controller.dto.PostingDto;
+import org.ingue.mall.posting.domain.Postings;
+import org.ingue.mall.posting.PostingRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,13 +35,13 @@ public class PostingControllerTests {
     ObjectMapper objectMapper;
 
     @Autowired
-    PostingsRepository postingsRepository;
+    PostingRepository postingRepository;
 
     @Test
     @TestDescription("유저가 글을 게시판에 올릴 때 성공적으로 글이 생성되는지 확인하는 테스트")
     public void createPosting() throws Exception {
 
-        PostingsDto postings = PostingsDto.builder()
+        PostingDto postings = PostingDto.builder()
                 .postingContent("테스트글")
                 .postingTitle("테스트제목")
                 .build();
@@ -63,7 +63,7 @@ public class PostingControllerTests {
                 .postingContent("테스트내용")
                 .build();
 
-        postingsRepository.save(postings);
+        postingRepository.save(postings);
 
         mockMvc.perform(get("/api/postings")
                 .param("postingId", postings.getPostingId().toString()))
