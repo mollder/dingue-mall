@@ -20,6 +20,8 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
+import java.util.stream.IntStream;
+
 import static org.springframework.restdocs.headers.HeaderDocumentation.headerWithName;
 import static org.springframework.restdocs.headers.HeaderDocumentation.requestHeaders;
 import static org.springframework.restdocs.headers.HeaderDocumentation.responseHeaders;
@@ -163,5 +165,35 @@ public class PostingControllerTests {
                 .param("postingId", postings.getPostingId().toString()))
                 .andDo(print())
                 .andExpect(status().isOk());
+    }
+
+    @Test
+    @TestDescription("")
+    public void queryPostings() throws Exception {
+        //Given
+        IntStream.range(0, 30).forEach(this::generatePosting);
+
+        //when
+        this.mockMvc.perform(get("/api/postings")
+                .param("page", "1")
+                .param("size", "10")
+                .param("sort", "postingId,DESC")
+                )
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("page").exists())
+                .andExpect(jsonPath("_embedded.postingsList[0]._links.self").exists())
+                .andExpect(jsonPath("_links.self").exists())
+                .andDo(document("query-postings"))
+        ;
+    }
+
+    private void generatePosting(int i) {
+        Postings posting = Postings.builder()
+                .postingTitle("테스트제목"+i)
+                .postingContent("테스트내용"+i)
+                .build();
+
+        this.postingRepository.save(posting);
     }
 }

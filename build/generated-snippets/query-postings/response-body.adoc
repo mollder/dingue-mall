@@ -1,0 +1,191 @@
+[source,options="nowrap"]
+----
+{
+  "_embedded" : {
+    "postingsList" : [ {
+      "postingId" : 20,
+      "postingTitle" : "테스트제목19",
+      "postingContent" : "테스트내용19",
+      "postingRecommend" : 0,
+      "boardName" : null,
+      "commentsSet" : [ ],
+      "user" : null,
+      "createAt" : "2019-05-22T20:28:27",
+      "updateAt" : "2019-05-22T20:28:27",
+      "developer" : null,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/api/postings/20"
+        }
+      }
+    }, {
+      "postingId" : 19,
+      "postingTitle" : "테스트제목18",
+      "postingContent" : "테스트내용18",
+      "postingRecommend" : 0,
+      "boardName" : null,
+      "commentsSet" : [ ],
+      "user" : null,
+      "createAt" : "2019-05-22T20:28:27",
+      "updateAt" : "2019-05-22T20:28:27",
+      "developer" : null,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/api/postings/19"
+        }
+      }
+    }, {
+      "postingId" : 18,
+      "postingTitle" : "테스트제목17",
+      "postingContent" : "테스트내용17",
+      "postingRecommend" : 0,
+      "boardName" : null,
+      "commentsSet" : [ ],
+      "user" : null,
+      "createAt" : "2019-05-22T20:28:27",
+      "updateAt" : "2019-05-22T20:28:27",
+      "developer" : null,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/api/postings/18"
+        }
+      }
+    }, {
+      "postingId" : 17,
+      "postingTitle" : "테스트제목16",
+      "postingContent" : "테스트내용16",
+      "postingRecommend" : 0,
+      "boardName" : null,
+      "commentsSet" : [ ],
+      "user" : null,
+      "createAt" : "2019-05-22T20:28:27",
+      "updateAt" : "2019-05-22T20:28:27",
+      "developer" : null,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/api/postings/17"
+        }
+      }
+    }, {
+      "postingId" : 16,
+      "postingTitle" : "테스트제목15",
+      "postingContent" : "테스트내용15",
+      "postingRecommend" : 0,
+      "boardName" : null,
+      "commentsSet" : [ ],
+      "user" : null,
+      "createAt" : "2019-05-22T20:28:27",
+      "updateAt" : "2019-05-22T20:28:27",
+      "developer" : null,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/api/postings/16"
+        }
+      }
+    }, {
+      "postingId" : 15,
+      "postingTitle" : "테스트제목14",
+      "postingContent" : "테스트내용14",
+      "postingRecommend" : 0,
+      "boardName" : null,
+      "commentsSet" : [ ],
+      "user" : null,
+      "createAt" : "2019-05-22T20:28:27",
+      "updateAt" : "2019-05-22T20:28:27",
+      "developer" : null,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/api/postings/15"
+        }
+      }
+    }, {
+      "postingId" : 14,
+      "postingTitle" : "테스트제목13",
+      "postingContent" : "테스트내용13",
+      "postingRecommend" : 0,
+      "boardName" : null,
+      "commentsSet" : [ ],
+      "user" : null,
+      "createAt" : "2019-05-22T20:28:27",
+      "updateAt" : "2019-05-22T20:28:27",
+      "developer" : null,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/api/postings/14"
+        }
+      }
+    }, {
+      "postingId" : 13,
+      "postingTitle" : "테스트제목12",
+      "postingContent" : "테스트내용12",
+      "postingRecommend" : 0,
+      "boardName" : null,
+      "commentsSet" : [ ],
+      "user" : null,
+      "createAt" : "2019-05-22T20:28:27",
+      "updateAt" : "2019-05-22T20:28:27",
+      "developer" : null,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/api/postings/13"
+        }
+      }
+    }, {
+      "postingId" : 12,
+      "postingTitle" : "테스트제목11",
+      "postingContent" : "테스트내용11",
+      "postingRecommend" : 0,
+      "boardName" : null,
+      "commentsSet" : [ ],
+      "user" : null,
+      "createAt" : "2019-05-22T20:28:27",
+      "updateAt" : "2019-05-22T20:28:27",
+      "developer" : null,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/api/postings/12"
+        }
+      }
+    }, {
+      "postingId" : 11,
+      "postingTitle" : "테스트제목10",
+      "postingContent" : "테스트내용10",
+      "postingRecommend" : 0,
+      "boardName" : null,
+      "commentsSet" : [ ],
+      "user" : null,
+      "createAt" : "2019-05-22T20:28:27",
+      "updateAt" : "2019-05-22T20:28:27",
+      "developer" : null,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/api/postings/11"
+        }
+      }
+    } ]
+  },
+  "_links" : {
+    "first" : {
+      "href" : "http://localhost:8080/api/postings?page=0&size=10&sort=postingId,desc"
+    },
+    "prev" : {
+      "href" : "http://localhost:8080/api/postings?page=0&size=10&sort=postingId,desc"
+    },
+    "self" : {
+      "href" : "http://localhost:8080/api/postings?page=1&size=10&sort=postingId,desc"
+    },
+    "next" : {
+      "href" : "http://localhost:8080/api/postings?page=2&size=10&sort=postingId,desc"
+    },
+    "last" : {
+      "href" : "http://localhost:8080/api/postings?page=2&size=10&sort=postingId,desc"
+    }
+  },
+  "page" : {
+    "size" : 10,
+    "totalElements" : 30,
+    "totalPages" : 3,
+    "number" : 1
+  }
+}
+----

@@ -9,7 +9,10 @@ import org.ingue.mall.posting.controller.domainResource.PostingResource;
 import org.ingue.mall.posting.domain.Postings;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PagedResourcesAssembler;
 import org.springframework.hateoas.MediaTypes;
+import org.springframework.hateoas.PagedResources;
+import org.springframework.hateoas.Resource;
 import org.springframework.hateoas.mvc.ControllerLinkBuilder;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -57,23 +60,29 @@ public class PostingController {
     }
 
     @GetMapping
-    public ResponseEntity findPostings(Pageable pageable) {
-        Page<Postings> postingsPage = postingRepository.findAll(pageable);
+    public ResponseEntity findPostings(Pageable pageable, PagedResourcesAssembler<Postings> postingsPagedResourcesAssembler) {
+//        Page<Postings> postingsPage = postingRepository.findAll(pageable);
+//
+//        List<PostingResource> postingResources = Lists.newArrayList();
+//
+//        for(Postings p : postingsPage.getContent()) {
+//            PostingResource postingResource = new PostingResource(p);
+//            postingResource.add(linkTo(PostingController.class).withRel("query-postings"));
+//
+//            ControllerLinkBuilder selfLinkBuilder = linkTo(PostingController.class).slash(p.getPostingId());
+//
+//            postingResource.add(selfLinkBuilder.withRel("recommend-postings"));
+//
+//            postingResources.add(postingResource);
+//        }
+//
+//        return ResponseEntity.ok(postingResources);
 
-        List<PostingResource> postingResources = Lists.newArrayList();
+        Page<Postings> postings = this.postingRepository.findAll(pageable);
+        PagedResources<Resource<Postings>> pagedResources = postingsPagedResourcesAssembler.toResource(postings,
+                p -> new PostingResource(p));
 
-        for(Postings p : postingsPage.getContent()) {
-            PostingResource postingResource = new PostingResource(p);
-            postingResource.add(linkTo(PostingController.class).withRel("query-postings"));
-
-            ControllerLinkBuilder selfLinkBuilder = linkTo(PostingController.class).slash(p.getPostingId());
-
-            postingResource.add(selfLinkBuilder.withRel("recommend-postings"));
-
-            postingResources.add(postingResource);
-        }
-
-        return ResponseEntity.ok(postingResources);
+        return ResponseEntity.ok(pagedResources);
     }
 
 //    @GetMapping

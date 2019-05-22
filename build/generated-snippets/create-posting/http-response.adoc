@@ -1,7 +1,7 @@
 [source,http,options="nowrap"]
 ----
 HTTP/1.1 201 Created
-Location: http://localhost:8080/api/postings/1
+Location: http://localhost:8080/api/postings/2
 Content-Type: application/hal+json;charset=UTF-8
 X-Content-Type-Options: nosniff
 X-XSS-Protection: 1; mode=block
@@ -12,28 +12,28 @@ X-Frame-Options: DENY
 Content-Length: 669
 
 {
-  "postingId" : 1,
+  "postingId" : 2,
   "postingTitle" : "테스트제목",
   "postingContent" : "테스트글",
   "postingRecommend" : 0,
   "boardName" : null,
   "commentsSet" : null,
   "user" : null,
-  "createAt" : "2019-05-22T15:13:03.266",
-  "updateAt" : "2019-05-22T15:13:03.266",
+  "createAt" : "2019-05-22T19:02:35.125",
+  "updateAt" : "2019-05-22T19:02:35.125",
   "developer" : null,
   "_links" : {
     "self" : {
-      "href" : "http://localhost:8080/api/postings/1"
+      "href" : "http://localhost:8080/api/postings/2"
     },
     "query-postings" : {
       "href" : "http://localhost:8080/api/postings"
     },
     "update-postings" : {
-      "href" : "http://localhost:8080/api/postings/1"
+      "href" : "http://localhost:8080/api/postings/2"
     },
     "delete-postings" : {
-      "href" : "http://localhost:8080/api/postings/1"
+      "href" : "http://localhost:8080/api/postings/2"
     }
   }
 }

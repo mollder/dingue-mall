@@ -1,0 +1,4 @@
+[source,bash]
+----
+$ http GET 'http://localhost:8080/api/postings?page=1&size=10&sort=postingId%2CDESC'
+----

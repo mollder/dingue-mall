@@ -1,0 +1,44 @@
+= Rest Docs Api document
+
+[[hello]]
+== create-posting api
+
+=== Request
+
+CURL:
+
+include::{snippets}/create-posting/curl-request.adoc[]
+
+Request headers:
+
+include::{snippets}/create-posting/request-headers.adoc[]
+
+Request fields:
+
+include::{snippets}/create-posting/request-parameters.adoc[]
+
+Request body:
+
+include::{snippets}/create-posting/request-body.adoc[]
+
+Request HTTP Example:
+
+include::{snippets}/create-posting/http-request.adoc[]
+
+=== Response
+
+Response Headers:
+
+include::{snippets}/create-posting/response-headers.adoc[]
+
+Response Fields:
+
+include::{snippets}/create-posting/response-fields.adoc[]
+
+Response Body:
+
+include::{snippets}/create-posting/response-body.adoc[]
+
+Response HTTP Example:
+
+include::{snippets}/create-posting/http-response.adoc[]

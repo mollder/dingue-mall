@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - Class org.ingue.mall.controller.PostingControllerTests</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>Class org.ingue.mall.controller.PostingControllerTests</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/org.ingue.mall.controller.html">org.ingue.mall.controller</a> &gt; PostingControllerTests</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">4</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">1.860s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">createPosting</td>
+<td>0.495s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">createPosting_Bad_Request_UnReceived_Input</td>
+<td>0.063s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">createPosting_Bad_Request_Wrong_Input</td>
+<td>0.527s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">findPosting</td>
+<td>0.775s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>2019-05-22 19:02:29.606  INFO 25944 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [org.ingue.mall.controller.PostingControllerTests], using SpringBootContextLoader
+2019-05-22 19:02:29.612  INFO 25944 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [org.ingue.mall.controller.PostingControllerTests]: no resource found for suffixes {-context.xml, Context.groovy}.
+2019-05-22 19:02:29.613  INFO 25944 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [org.ingue.mall.controller.PostingControllerTests]: PostingControllerTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2019-05-22 19:02:29.641  INFO 25944 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration org.ingue.mall.Application for test class org.ingue.mall.controller.PostingControllerTests
+2019-05-22 19:02:29.646  INFO 25944 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2019-05-22 19:02:29.646  INFO 25944 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@4e2616fe, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@c1e8736, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@3c6c1b4a, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@56b701ed, org.springframework.test.context.support.DirtiesContextTestExecutionListener@28586c23, org.springframework.test.context.transaction.TransactionalTestExecutionListener@50076929, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@ced8e28, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@623b4e31, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@9691f21, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@62cc6104, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@2b03fbb, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@3ac2a31a]
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v2.0.3.RELEASE)
+
+2019-05-22 19:02:30.148  INFO 25944 --- [    Test worker] o.i.m.controller.PostingControllerTests  : Starting PostingControllerTests on DESKTOP-AAPL677 with PID 25944 (started by dingue in C:\Users\dingue\test1111\MallProject)
+2019-05-22 19:02:30.156  INFO 25944 --- [    Test worker] o.i.m.controller.PostingControllerTests  : No active profile set, falling back to default profiles: default
+2019-05-22 19:02:30.170  INFO 25944 --- [    Test worker] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@4292af1a: startup date [Wed May 22 19:02:30 KST 2019]; root of context hierarchy
+2019-05-22 19:02:31.342  INFO 25944 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$e5724cc] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-22 19:02:31.552  INFO 25944 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2019-05-22 19:02:31.564  INFO 25944 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2019-05-22 19:02:31.605  INFO 25944 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2019-05-22 19:02:31.605  INFO 25944 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-05-22 19:02:31.619  INFO 25944 --- [    Test worker] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+Hibernate: 
+    
+    drop table if exists comments
+Hibernate: 
+    
+    drop table if exists postings
+Hibernate: 
+    
+    drop table if exists users
+Hibernate: 
+    
+    create table comments (
+       comment_id bigint not null auto_increment,
+        comment_content varchar(255),
+        comment_recommend integer not null,
+        create_at datetime not null,
+        developer varchar(255) not null,
+        update_at datetime not null,
+        posting_posting_id bigint,
+        user_user_id bigint,
+        primary key (comment_id)
+    ) engine=MyISAM
+Hibernate: 
+    
+    create table postings (
+       posting_id bigint not null auto_increment,
+        board_name varchar(255),
+        create_at datetime not null,
+        developer varchar(255),
+        posting_content varchar(255),
+        posting_recommend integer not null,
+        posting_title varchar(255) not null,
+        update_at datetime not null,
+        user_user_id bigint,
+        primary key (posting_id)
+    ) engine=MyISAM
+Hibernate: 
+    
+    create table users (
+       user_id bigint not null auto_increment,
+        create_at datetime not null,
+        developer varchar(255),
+        update_at datetime not null,
+        user_email varchar(255) not null,
+        user_nick_name varchar(255) not null,
+        user_password varchar(255) not null,
+        user_phone_num varchar(255),
+        primary key (user_id)
+    ) engine=MyISAM
+Hibernate: 
+    
+    alter table users 
+       add constraint UK_33uo7vet9c79ydfuwg1w848f unique (user_email)
+Hibernate: 
+    
+    alter table users 
+       add constraint UK_47scqcctauf6pn4bvtwepkt1d unique (user_phone_num)
+Hibernate: 
+    
+    alter table comments 
+       add constraint FKf63nk73611r6atp9emb9guh9o 
+       foreign key (posting_posting_id) 
+       references postings (posting_id)
+Hibernate: 
+    
+    alter table comments 
+       add constraint FKcc96r34gkial9e3fxphcr3abt 
+       foreign key (user_user_id) 
+       references users (user_id)
+Hibernate: 
+    
+    alter table postings 
+       add constraint FKd233o24e1aw2vto3op5v6c5r6 
+       foreign key (user_user_id) 
+       references users (user_id)
+2019-05-22 19:02:32.119  INFO 25944 --- [    Test worker] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@4bf8af56'
+2019-05-22 19:02:32.119  INFO 25944 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-05-22 19:02:32.576  INFO 25944 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5e02c787, org.springframework.security.web.context.SecurityContextPersistenceFilter@6c34911f, org.springframework.security.web.header.HeaderWriterFilter@1051e227, org.springframework.security.web.authentication.logout.LogoutFilter@7e0d7c89, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@55bb1a87, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@67c2efdd, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@789d69d8, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@17868e28, org.springframework.security.web.session.SessionManagementFilter@2174ec5e, org.springframework.security.web.access.ExceptionTranslationFilter@518b4eda, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@bcddf7f]
+2019-05-22 19:02:32.845  INFO 25944 --- [    Test worker] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-05-22 19:02:33.079  INFO 25944 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.web.context.support.GenericWebApplicationContext@4292af1a: startup date [Wed May 22 19:02:30 KST 2019]; root of context hierarchy
+2019-05-22 19:02:33.088  WARN 25944 --- [    Test worker] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-05-22 19:02:33.120  INFO 25944 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped &quot;{[/failure],methods=[GET]}&quot; onto public java.lang.String org.ingue.mall.config.security.springSecurity.AuthController.failure()
+2019-05-22 19:02:33.121  INFO 25944 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped &quot;{[/success],methods=[GET]}&quot; onto public java.lang.String org.ingue.mall.config.security.springSecurity.AuthController.success()
+2019-05-22 19:02:33.124  INFO 25944 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped &quot;{[/api/postings],methods=[GET],produces=[application/hal+json;charset=UTF-8]}&quot; onto public org.springframework.http.ResponseEntity org.ingue.mall.posting.controller.PostingController.findPostings(org.springframework.data.domain.Pageable)
+2019-05-22 19:02:33.125  INFO 25944 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped &quot;{[/api/postings],methods=[POST],produces=[application/hal+json;charset=UTF-8]}&quot; onto public org.springframework.http.ResponseEntity org.ingue.mall.posting.controller.PostingController.createPosting(org.ingue.mall.posting.controller.dto.PostingDto,org.springframework.validation.Errors)
+2019-05-22 19:02:33.129  INFO 25944 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped &quot;{[/error]}&quot; onto public org.springframework.http.ResponseEntity&lt;java.util.Map&lt;java.lang.String, java.lang.Object&gt;&gt; org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2019-05-22 19:02:33.129  INFO 25944 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped &quot;{[/error],produces=[text/html]}&quot; onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2019-05-22 19:02:33.173  INFO 25944 --- [    Test worker] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-05-22 19:02:33.175  INFO 25944 --- [    Test worker] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-05-22 19:02:33.220  INFO 25944 --- [    Test worker] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2019-05-22 19:02:33.679  INFO 25944 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring FrameworkServlet ''
+2019-05-22 19:02:33.679  INFO 25944 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization started
+2019-05-22 19:02:33.704  INFO 25944 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization completed in 24 ms
+2019-05-22 19:02:33.744  INFO 25944 --- [    Test worker] o.i.m.controller.PostingControllerTests  : Started PostingControllerTests in 4.07 seconds (JVM running for 19.588)
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /api/postings
+       Parameters = {}
+          Headers = {Content-Type=[application/json;charset=UTF-8], Accept=[application/hal+json;charset=UTF-8]}
+             Body = {&quot;postingTitle&quot;:&quot; &quot;,&quot;postingContent&quot;:&quot;테스트 내용&quot;}
+    Session Attrs = {}
+
+Handler:
+             Type = org.ingue.mall.posting.controller.PostingController
+           Method = public org.springframework.http.ResponseEntity org.ingue.mall.posting.controller.PostingController.createPosting(org.ingue.mall.posting.controller.dto.PostingDto,org.springframework.validation.Errors)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 400
+    Error message = null
+          Headers = {Content-Type=[application/hal+json;charset=UTF-8], X-Content-Type-Options=[nosniff], X-XSS-Protection=[1; mode=block], Cache-Control=[no-cache, no-store, max-age=0, must-revalidate], Pragma=[no-cache], Expires=[0], X-Frame-Options=[DENY]}
+     Content type = application/hal+json;charset=UTF-8
+             Body = [{&quot;field&quot;:&quot;postingTitle&quot;,&quot;objectName&quot;:&quot;postingDto&quot;,&quot;code&quot;:&quot;NotBlank&quot;,&quot;defaultMessage&quot;:&quot;must not be blank&quot;,&quot;rejectedValue&quot;:&quot; &quot;}]
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /api/postings
+       Parameters = {}
+          Headers = {Content-Type=[application/json;charset=UTF-8], Accept=[application/hal+json;charset=UTF-8]}
+             Body = {&quot;postingTitle&quot;:&quot;테스트 제목&quot;,&quot;postingContent&quot;:null}
+    Session Attrs = {}
+
+Handler:
+             Type = org.ingue.mall.posting.controller.PostingController
+           Method = public org.springframework.http.ResponseEntity org.ingue.mall.posting.controller.PostingController.createPosting(org.ingue.mall.posting.controller.dto.PostingDto,org.springframework.validation.Errors)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 400
+    Error message = null
+          Headers = {Content-Type=[application/hal+json;charset=UTF-8], X-Content-Type-Options=[nosniff], X-XSS-Protection=[1; mode=block], Cache-Control=[no-cache, no-store, max-age=0, must-revalidate], Pragma=[no-cache], Expires=[0], X-Frame-Options=[DENY]}
+     Content type = application/hal+json;charset=UTF-8
+             Body = [{&quot;field&quot;:&quot;postingContent&quot;,&quot;objectName&quot;:&quot;postingDto&quot;,&quot;code&quot;:&quot;NotNull&quot;,&quot;defaultMessage&quot;:&quot;must not be null&quot;}]
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+2019-05-22 19:02:34.322  WARN 25944 --- [    Test worker] .w.s.m.s.DefaultHandlerExceptionResolver : Failed to read HTTP message: org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unrecognized field &quot;postingId&quot; (class org.ingue.mall.posting.controller.dto.PostingDto), not marked as ignorable; nested exception is com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException: Unrecognized field &quot;postingId&quot; (class org.ingue.mall.posting.controller.dto.PostingDto), not marked as ignorable (2 known properties: &quot;postingTitle&quot;, &quot;postingContent&quot;])
+ at [Source: (PushbackInputStream); line: 1, column: 15] (through reference chain: org.ingue.mall.posting.controller.dto.PostingDto[&quot;postingId&quot;])
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /api/postings
+       Parameters = {}
+          Headers = {Content-Type=[application/json;charset=UTF-8], Accept=[application/hal+json;charset=UTF-8]}
+             Body = {&quot;postingId&quot;:1,&quot;postingTitle&quot;:&quot;테스트제목&quot;,&quot;postingContent&quot;:&quot;테스트글&quot;,&quot;postingRecommend&quot;:0,&quot;boardName&quot;:&quot;USER&quot;,&quot;commentsSet&quot;:null,&quot;user&quot;:null,&quot;createAt&quot;:null,&quot;updateAt&quot;:null,&quot;developer&quot;:null}
+    Session Attrs = {}
+
+Handler:
+             Type = org.ingue.mall.posting.controller.PostingController
+           Method = public org.springframework.http.ResponseEntity org.ingue.mall.posting.controller.PostingController.createPosting(org.ingue.mall.posting.controller.dto.PostingDto,org.springframework.validation.Errors)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = org.springframework.http.converter.HttpMessageNotReadableException
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 400
+    Error message = null
+          Headers = {X-Content-Type-Options=[nosniff], X-XSS-Protection=[1; mode=block], Cache-Control=[no-cache, no-store, max-age=0, must-revalidate], Pragma=[no-cache], Expires=[0], X-Frame-Options=[DENY]}
+     Content type = null
+             Body = 
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+Hibernate: 
+    insert 
+    into
+        postings
+        (board_name, create_at, developer, posting_content, posting_recommend, posting_title, update_at, user_user_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2019-05-22 19:02:34.515 TRACE 25944 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [TIMESTAMP] - [2019-05-22T19:02:34.437]
+2019-05-22 19:02:34.520 TRACE 25944 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [null]
+2019-05-22 19:02:34.521 TRACE 25944 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [테스트내용]
+2019-05-22 19:02:34.524 TRACE 25944 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [INTEGER] - [0]
+2019-05-22 19:02:34.525 TRACE 25944 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [VARCHAR] - [테스트제목]
+2019-05-22 19:02:34.525 TRACE 25944 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [TIMESTAMP] - [2019-05-22T19:02:34.438]
+2019-05-22 19:02:34.528 TRACE 25944 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [BIGINT] - [null]
+2019-05-22 19:02:34.613  INFO 25944 --- [    Test worker] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+Hibernate: 
+    select
+        postings0_.posting_id as posting_1_1_,
+        postings0_.board_name as board_na2_1_,
+        postings0_.create_at as create_a3_1_,
+        postings0_.developer as develope4_1_,
+        postings0_.posting_content as posting_5_1_,
+        postings0_.posting_recommend as posting_6_1_,
+        postings0_.posting_title as posting_7_1_,
+        postings0_.update_at as update_a8_1_,
+        postings0_.user_user_id as user_use9_1_ 
+    from
+        postings postings0_ limit ?
+2019-05-22 19:02:34.996 TRACE 25944 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([posting_1_1_] : [BIGINT]) - [1]
+2019-05-22 19:02:35.002 TRACE 25944 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([create_a3_1_] : [TIMESTAMP]) - [2019-05-22T19:02:34]
+2019-05-22 19:02:35.004 TRACE 25944 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([develope4_1_] : [VARCHAR]) - [null]
+2019-05-22 19:02:35.005 TRACE 25944 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([posting_5_1_] : [VARCHAR]) - [테스트내용]
+2019-05-22 19:02:35.006 TRACE 25944 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([posting_6_1_] : [INTEGER]) - [0]
+2019-05-22 19:02:35.007 TRACE 25944 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([posting_7_1_] : [VARCHAR]) - [테스트제목]
+2019-05-22 19:02:35.008 TRACE 25944 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([update_a8_1_] : [TIMESTAMP]) - [2019-05-22T19:02:34]
+2019-05-22 19:02:35.008 TRACE 25944 --- [    Test worker] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([user_use9_1_] : [BIGINT]) - [null]
+Hibernate: 
+    select
+        commentsse0_.posting_posting_id as posting_7_0_0_,
+        commentsse0_.comment_id as comment_1_0_0_,
+        commentsse0_.comment_id as comment_1_0_1_,
+        commentsse0_.comment_content as comment_2_0_1_,
+        commentsse0_.comment_recommend as comment_3_0_1_,
+        commentsse0_.create_at as create_a4_0_1_,
+        commentsse0_.developer as develope5_0_1_,
+        commentsse0_.posting_posting_id as posting_7_0_1_,
+        commentsse0_.update_at as update_a6_0_1_,
+        commentsse0_.user_user_id as user_use8_0_1_,
+        users1_.user_id as user_id1_2_2_,
+        users1_.create_at as create_a2_2_2_,
+        users1_.developer as develope3_2_2_,
+        users1_.update_at as update_a4_2_2_,
+        users1_.user_email as user_ema5_2_2_,
+        users1_.user_nick_name as user_nic6_2_2_,
+        users1_.user_password as user_pas7_2_2_,
+        users1_.user_phone_num as user_pho8_2_2_ 
+    from
+        comments commentsse0_ 
+    left outer join
+        users users1_ 
+            on commentsse0_.user_user_id=users1_.user_id 
+    where
+        commentsse0_.posting_posting_id=?
+2019-05-22 19:02:35.096 TRACE 25944 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [1]
+
+MockHttpServletRequest:
+      HTTP Method = GET
+      Request URI = /api/postings
+       Parameters = {postingId=[1]}
+          Headers = {Content-Type=[application/json;charset=UTF-8]}
+             Body = null
+    Session Attrs = {}
+
+Handler:
+             Type = org.ingue.mall.posting.controller.PostingController
+           Method = public org.springframework.http.ResponseEntity org.ingue.mall.posting.controller.PostingController.findPostings(org.springframework.data.domain.Pageable)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = {Content-Type=[application/hal+json;charset=UTF-8], X-Content-Type-Options=[nosniff], X-XSS-Protection=[1; mode=block], Cache-Control=[no-cache, no-store, max-age=0, must-revalidate], Pragma=[no-cache], Expires=[0], X-Frame-Options=[DENY]}
+     Content type = application/hal+json;charset=UTF-8
+             Body = [{&quot;postingId&quot;:1,&quot;postingTitle&quot;:&quot;테스트제목&quot;,&quot;postingContent&quot;:&quot;테스트내용&quot;,&quot;postingRecommend&quot;:0,&quot;boardName&quot;:null,&quot;commentsSet&quot;:[],&quot;user&quot;:null,&quot;createAt&quot;:&quot;2019-05-22T19:02:34&quot;,&quot;updateAt&quot;:&quot;2019-05-22T19:02:34&quot;,&quot;developer&quot;:null,&quot;links&quot;:[{&quot;rel&quot;:&quot;self&quot;,&quot;href&quot;:&quot;http://localhost:8080/api/postings/1&quot;,&quot;hreflang&quot;:null,&quot;media&quot;:null,&quot;title&quot;:null,&quot;type&quot;:null,&quot;deprecation&quot;:null},{&quot;rel&quot;:&quot;query-postings&quot;,&quot;href&quot;:&quot;http://localhost:8080/api/postings&quot;,&quot;hreflang&quot;:null,&quot;media&quot;:null,&quot;title&quot;:null,&quot;type&quot;:null,&quot;deprecation&quot;:null},{&quot;rel&quot;:&quot;recommend-postings&quot;,&quot;href&quot;:&quot;http://localhost:8080/api/postings/1&quot;,&quot;hreflang&quot;:null,&quot;media&quot;:null,&quot;title&quot;:null,&quot;type&quot;:null,&quot;deprecation&quot;:null}]}]
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+Hibernate: 
+    insert 
+    into
+        postings
+        (board_name, create_at, developer, posting_content, posting_recommend, posting_title, update_at, user_user_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2019-05-22 19:02:35.126 TRACE 25944 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [TIMESTAMP] - [2019-05-22T19:02:35.125]
+2019-05-22 19:02:35.126 TRACE 25944 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [null]
+2019-05-22 19:02:35.126 TRACE 25944 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [테스트글]
+2019-05-22 19:02:35.126 TRACE 25944 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [INTEGER] - [0]
+2019-05-22 19:02:35.127 TRACE 25944 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [VARCHAR] - [테스트제목]
+2019-05-22 19:02:35.127 TRACE 25944 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [TIMESTAMP] - [2019-05-22T19:02:35.125]
+2019-05-22 19:02:35.127 TRACE 25944 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [BIGINT] - [null]
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /api/postings
+       Parameters = {}
+          Headers = {Content-Type=[application/json;charset=UTF-8], Accept=[application/hal+json;charset=UTF-8]}
+             Body = {&quot;postingTitle&quot;:&quot;테스트제목&quot;,&quot;postingContent&quot;:&quot;테스트글&quot;}
+    Session Attrs = {}
+
+Handler:
+             Type = org.ingue.mall.posting.controller.PostingController
+           Method = public org.springframework.http.ResponseEntity org.ingue.mall.posting.controller.PostingController.createPosting(org.ingue.mall.posting.controller.dto.PostingDto,org.springframework.validation.Errors)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 201
+    Error message = null
+          Headers = {Location=[http://localhost:8080/api/postings/2], Content-Type=[application/hal+json;charset=UTF-8], X-Content-Type-Options=[nosniff], X-XSS-Protection=[1; mode=block], Cache-Control=[no-cache, no-store, max-age=0, must-revalidate], Pragma=[no-cache], Expires=[0], X-Frame-Options=[DENY]}
+     Content type = application/hal+json;charset=UTF-8
+             Body = {&quot;postingId&quot;:2,&quot;postingTitle&quot;:&quot;테스트제목&quot;,&quot;postingContent&quot;:&quot;테스트글&quot;,&quot;postingRecommend&quot;:0,&quot;boardName&quot;:null,&quot;commentsSet&quot;:null,&quot;user&quot;:null,&quot;createAt&quot;:&quot;2019-05-22T19:02:35.125&quot;,&quot;updateAt&quot;:&quot;2019-05-22T19:02:35.125&quot;,&quot;developer&quot;:null,&quot;_links&quot;:{&quot;self&quot;:{&quot;href&quot;:&quot;http://localhost:8080/api/postings/2&quot;},&quot;query-postings&quot;:{&quot;href&quot;:&quot;http://localhost:8080/api/postings&quot;},&quot;update-postings&quot;:{&quot;href&quot;:&quot;http://localhost:8080/api/postings/2&quot;},&quot;delete-postings&quot;:{&quot;href&quot;:&quot;http://localhost:8080/api/postings/2&quot;}}}
+    Forwarded URL = null
+   Redirected URL = http://localhost:8080/api/postings/2
+          Cookies = []
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 4.4</a> at 2019. 5. 22 오후 7:02:36</p>
+</div>
+</div>
+</body>
+</html>
