@@ -3,5 +3,8 @@
 $ curl 'http://localhost:8080/api/postings' -i -X POST \
     -H 'Content-Type: application/json;charset=UTF-8' \
     -H 'Accept: application/hal+json;charset=UTF-8' \
-    -d '{"postingTitle":"테스트제목","postingContent":"테스트글"}'
+    -d '{
+  "postingTitle" : "테스트제목",
+  "postingContent" : "테스트글"
+}'
 ----

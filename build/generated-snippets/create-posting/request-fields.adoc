@@ -1,0 +1,12 @@
+|===
+|Path|Type|Description
+
+|`+postingTitle+`
+|`+String+`
+|title of new posting
+
+|`+postingContent+`
+|`+String+`
+|content of new posting
+
+|===

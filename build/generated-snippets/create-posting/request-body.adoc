@@ -1,0 +1,7 @@
+[source,options="nowrap"]
+----
+{
+  "postingTitle" : "테스트제목",
+  "postingContent" : "테스트글"
+}
+----

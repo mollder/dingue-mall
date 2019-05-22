@@ -1,0 +1,44 @@
+|===
+|Path|Type|Description
+
+|`+postingId+`
+|`+Number+`
+|id of new posting
+
+|`+postingTitle+`
+|`+String+`
+|title of new posting
+
+|`+postingContent+`
+|`+String+`
+|content of new posting
+
+|`+postingRecommend+`
+|`+Number+`
+|recommendCount of new posting
+
+|`+boardName+`
+|`+Null+`
+|boardName of new posting
+
+|`+commentsSet+`
+|`+Null+`
+|comments in the new posting
+
+|`+user+`
+|`+Null+`
+|user who write this new posting
+
+|`+createAt+`
+|`+String+`
+|time created for new posting
+
+|`+updateAt+`
+|`+String+`
+|time updated for new posting
+
+|`+developer+`
+|`+Null+`
+|application developer name
+
+|===
