@@ -20,8 +20,10 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
+import java.time.LocalDateTime;
 import java.util.stream.IntStream;
 
+import static org.hamcrest.Matchers.not;
 import static org.springframework.restdocs.headers.HeaderDocumentation.headerWithName;
 import static org.springframework.restdocs.headers.HeaderDocumentation.requestHeaders;
 import static org.springframework.restdocs.headers.HeaderDocumentation.responseHeaders;
@@ -29,6 +31,7 @@ import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.docu
 import static org.springframework.restdocs.payload.PayloadDocumentation.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -168,12 +171,12 @@ public class PostingControllerTests {
     }
 
     @Test
-    @TestDescription("")
+    @TestDescription("글 30개 생성 후 pageing 해서 가져오는 테스트")
     public void queryPostings() throws Exception {
         //Given
         IntStream.range(0, 30).forEach(this::generatePosting);
 
-        //when
+        //when & then
         this.mockMvc.perform(get("/api/postings")
                 .param("page", "1")
                 .param("size", "10")
@@ -188,12 +191,77 @@ public class PostingControllerTests {
         ;
     }
 
-    private void generatePosting(int i) {
+    @Test
+    @TestDescription("")
+    public void getPosting() throws Exception {
+        //Given
+        Postings posting = this.generatePosting(1);
+
+        //When & then
+        this.mockMvc.perform(get("/api/postings/{id}", posting.getPostingId()))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("postingId").exists())
+                .andExpect(jsonPath("postingContent").exists())
+                .andExpect(jsonPath("postingTitle").exists())
+                .andExpect(jsonPath("postingRecommend").exists())
+                .andExpect(jsonPath("createAt").exists())
+                .andExpect(jsonPath("updateAt").exists())
+                ;
+    }
+
+    @Test
+    @TestDescription("없는 글을 요청했을 때 404 발생")
+    public void getPosting404() throws Exception {
+        //Given
+        Postings posting = this.generatePosting(1);
+
+        //When & then
+        this.mockMvc.perform(get("/api/postings/{id}", -1))
+                .andExpect(status().isNotFound())
+        ;
+
+    }
+
+    @Test
+    @TestDescription("제목과 내용이 바뀐 객체로 업데이트 요청이 들어오면 업데이트가 성공적으로 진행되어야 함")
+    public void updatePosting() throws Exception {
+        Postings postings = this.generatePosting(1);
+
+        this.postingRepository.save(postings);
+
+        Postings updatePosting = Postings.builder()
+                .postingId(postings.getPostingId())
+                .postingTitle("다른제목")
+                .postingContent("다른내용")
+                .postingRecommend(postings.getPostingRecommend())
+                .updateAt(postings.getUpdateAt())
+                .boardName(postings.getBoardName())
+                .createAt(postings.getCreateAt())
+                .developer(postings.getDeveloper())
+                .commentsSet(postings.getCommentsSet())
+                .user(postings.getUser())
+                .build();
+
+        this.mockMvc.perform(put("/api/postings")
+                .contentType(MediaType.APPLICATION_JSON_UTF8)
+                .content(objectMapper.writeValueAsBytes(updatePosting))
+                .accept(MediaTypes.HAL_JSON_UTF8))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("postingId").value(postings.getPostingId()))
+                .andExpect(jsonPath("postingTitle").value(not(postings.getPostingTitle())))
+                .andExpect(jsonPath("postingContent").value(not(postings.getPostingContent())))
+                .andExpect(jsonPath("postingRecommend").value(postings.getPostingRecommend()))
+                .andExpect(jsonPath("updateAt").value(not(postings.getUpdateAt())))
+                ;
+    }
+
+    private Postings generatePosting(int i) {
         Postings posting = Postings.builder()
                 .postingTitle("테스트제목"+i)
                 .postingContent("테스트내용"+i)
                 .build();
 
-        this.postingRepository.save(posting);
+        return this.postingRepository.save(posting);
     }
 }

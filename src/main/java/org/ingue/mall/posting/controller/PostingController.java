@@ -61,23 +61,6 @@ public class PostingController {
 
     @GetMapping
     public ResponseEntity findPostings(Pageable pageable, PagedResourcesAssembler<Postings> postingsPagedResourcesAssembler) {
-//        Page<Postings> postingsPage = postingRepository.findAll(pageable);
-//
-//        List<PostingResource> postingResources = Lists.newArrayList();
-//
-//        for(Postings p : postingsPage.getContent()) {
-//            PostingResource postingResource = new PostingResource(p);
-//            postingResource.add(linkTo(PostingController.class).withRel("query-postings"));
-//
-//            ControllerLinkBuilder selfLinkBuilder = linkTo(PostingController.class).slash(p.getPostingId());
-//
-//            postingResource.add(selfLinkBuilder.withRel("recommend-postings"));
-//
-//            postingResources.add(postingResource);
-//        }
-//
-//        return ResponseEntity.ok(postingResources);
-
         Page<Postings> postings = this.postingRepository.findAll(pageable);
         PagedResources<Resource<Postings>> pagedResources = postingsPagedResourcesAssembler.toResource(postings,
                 p -> new PostingResource(p));
@@ -85,22 +68,35 @@ public class PostingController {
         return ResponseEntity.ok(pagedResources);
     }
 
-//    @GetMapping
-//    public ResponseEntity findOnePosting(@RequestParam Long postingId) {
-//        Optional<Postings> optional = postingRepository.findById(postingId);
-//
-//        if(!optional.isPresent()) {
-//            return ResponseEntity.badRequest().build();
-//        }
-//
-//        Postings postings = optional.get();
-//
-//        ControllerLinkBuilder selfLinkBuilder = linkTo(PostingController.class).slash(postings.getPostingId());
-//
-//        PostingResource postingResource = new PostingResource(postings);
-//        postingResource.add(linkTo(PostingController.class).withRel("query-postings"));
-//        postingResource.add(selfLinkBuilder.withRel("update-postings"));
-//
-//        return ResponseEntity.ok().body(postingResource);
-//    }
+    @GetMapping("/{id}")
+    public ResponseEntity getPosting(@PathVariable Long id) {
+        Optional<Postings> optionalPostings = this.postingRepository.findById(id);
+
+        if(!optionalPostings.isPresent()) {
+            return ResponseEntity.notFound().build();
+        }
+
+        Postings posting = optionalPostings.get();
+        PostingResource postingResource = new PostingResource(posting);
+
+        return ResponseEntity.ok(postingResource);
+    }
+
+    @PutMapping
+    public ResponseEntity updatePosting(@RequestBody Postings posting, Errors errors) {
+        if(errors.hasErrors()) {
+            return ResponseEntity.badRequest().body(errors);
+        }
+
+        Optional<Postings> optionalPostings = this.postingRepository.findById(posting.getPostingId());
+
+        if(!optionalPostings.isPresent()) {
+            return ResponseEntity.notFound().build();
+        }
+
+        Postings newPosting = this.postingRepository.save(posting);
+
+        return ResponseEntity.ok(newPosting);
+    }
+
 }

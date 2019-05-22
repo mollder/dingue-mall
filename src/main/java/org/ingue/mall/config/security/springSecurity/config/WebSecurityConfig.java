@@ -32,7 +32,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             "/dist/**",
             "/failure",
             "/auth/**",
-            "/api/postings",
+            "/api/postings/**",
     };
 
     protected void configure(HttpSecurity http) throws Exception {

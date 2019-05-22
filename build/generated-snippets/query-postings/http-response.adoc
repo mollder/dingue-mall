@@ -20,8 +20,8 @@ Content-Length: 5421
       "boardName" : null,
       "commentsSet" : [ ],
       "user" : null,
-      "createAt" : "2019-05-22T20:28:27",
-      "updateAt" : "2019-05-22T20:28:27",
+      "createAt" : "2019-05-22T21:38:17",
+      "updateAt" : "2019-05-22T21:38:17",
       "developer" : null,
       "_links" : {
         "self" : {
@@ -36,8 +36,8 @@ Content-Length: 5421
       "boardName" : null,
       "commentsSet" : [ ],
       "user" : null,
-      "createAt" : "2019-05-22T20:28:27",
-      "updateAt" : "2019-05-22T20:28:27",
+      "createAt" : "2019-05-22T21:38:17",
+      "updateAt" : "2019-05-22T21:38:17",
       "developer" : null,
       "_links" : {
         "self" : {
@@ -52,8 +52,8 @@ Content-Length: 5421
       "boardName" : null,
       "commentsSet" : [ ],
       "user" : null,
-      "createAt" : "2019-05-22T20:28:27",
-      "updateAt" : "2019-05-22T20:28:27",
+      "createAt" : "2019-05-22T21:38:17",
+      "updateAt" : "2019-05-22T21:38:17",
       "developer" : null,
       "_links" : {
         "self" : {
@@ -68,8 +68,8 @@ Content-Length: 5421
       "boardName" : null,
       "commentsSet" : [ ],
       "user" : null,
-      "createAt" : "2019-05-22T20:28:27",
-      "updateAt" : "2019-05-22T20:28:27",
+      "createAt" : "2019-05-22T21:38:17",
+      "updateAt" : "2019-05-22T21:38:17",
       "developer" : null,
       "_links" : {
         "self" : {
@@ -84,8 +84,8 @@ Content-Length: 5421
       "boardName" : null,
       "commentsSet" : [ ],
       "user" : null,
-      "createAt" : "2019-05-22T20:28:27",
-      "updateAt" : "2019-05-22T20:28:27",
+      "createAt" : "2019-05-22T21:38:17",
+      "updateAt" : "2019-05-22T21:38:17",
       "developer" : null,
       "_links" : {
         "self" : {
@@ -100,8 +100,8 @@ Content-Length: 5421
       "boardName" : null,
       "commentsSet" : [ ],
       "user" : null,
-      "createAt" : "2019-05-22T20:28:27",
-      "updateAt" : "2019-05-22T20:28:27",
+      "createAt" : "2019-05-22T21:38:17",
+      "updateAt" : "2019-05-22T21:38:17",
       "developer" : null,
       "_links" : {
         "self" : {
@@ -116,8 +116,8 @@ Content-Length: 5421
       "boardName" : null,
       "commentsSet" : [ ],
       "user" : null,
-      "createAt" : "2019-05-22T20:28:27",
-      "updateAt" : "2019-05-22T20:28:27",
+      "createAt" : "2019-05-22T21:38:17",
+      "updateAt" : "2019-05-22T21:38:17",
       "developer" : null,
       "_links" : {
         "self" : {
@@ -132,8 +132,8 @@ Content-Length: 5421
       "boardName" : null,
       "commentsSet" : [ ],
       "user" : null,
-      "createAt" : "2019-05-22T20:28:27",
-      "updateAt" : "2019-05-22T20:28:27",
+      "createAt" : "2019-05-22T21:38:17",
+      "updateAt" : "2019-05-22T21:38:17",
       "developer" : null,
       "_links" : {
         "self" : {
@@ -148,8 +148,8 @@ Content-Length: 5421
       "boardName" : null,
       "commentsSet" : [ ],
       "user" : null,
-      "createAt" : "2019-05-22T20:28:27",
-      "updateAt" : "2019-05-22T20:28:27",
+      "createAt" : "2019-05-22T21:38:17",
+      "updateAt" : "2019-05-22T21:38:17",
       "developer" : null,
       "_links" : {
         "self" : {
@@ -164,8 +164,8 @@ Content-Length: 5421
       "boardName" : null,
       "commentsSet" : [ ],
       "user" : null,
-      "createAt" : "2019-05-22T20:28:27",
-      "updateAt" : "2019-05-22T20:28:27",
+      "createAt" : "2019-05-22T21:38:17",
+      "updateAt" : "2019-05-22T21:38:17",
       "developer" : null,
       "_links" : {
         "self" : {
