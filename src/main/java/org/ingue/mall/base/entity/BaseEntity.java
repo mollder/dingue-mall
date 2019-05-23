@@ -14,11 +14,7 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @MappedSuperclass
-@Entity
 @Getter
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
 public class BaseEntity implements Serializable {
 
     @CreationTimestamp
