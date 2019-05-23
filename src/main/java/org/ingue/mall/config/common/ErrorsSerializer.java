@@ -8,6 +8,14 @@ import org.springframework.validation.Errors;
 
 import java.io.IOException;
 
+/**
+ * Controller에서 받는 Errors 객체는
+ * 자바 Bean 스펙을 따르지 않아서 BeanSerializer를 이용하지 못함
+ *
+ * 그래서 JSON으로 변환하기 위해서 Errors객체를 위한 Serializer를 설정해주어야 함
+ *
+ * 아래 클래스가 Errors 객체를 위한 Serializer
+ */
 @JsonComponent
 public class ErrorsSerializer extends JsonSerializer<Errors> {
     @Override

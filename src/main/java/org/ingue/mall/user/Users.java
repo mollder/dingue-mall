@@ -1,10 +1,7 @@
 package org.ingue.mall.user;
 
 import com.google.common.collect.Sets;
-import lombok.Builder;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.ingue.mall.base.entity.BaseEntity;
@@ -15,12 +12,13 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
 import java.util.*;
 
 @Entity
 @Getter
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @EqualsAndHashCode(of = "userId", callSuper = false)
 public class Users extends BaseEntity implements UserDetails {
 
@@ -55,14 +53,6 @@ public class Users extends BaseEntity implements UserDetails {
 
     public void addComments(Comments comment) {
         this.getCommentsSet().add(comment);
-    }
-
-    @Builder
-    public Users(String userEmail, String userPassword, String userNickName, String userPhoneNum) {
-        this.userEmail = userEmail;
-        this.userPassword = userPassword;
-        this.userNickName = userNickName;
-        this.userPhoneNum = userPhoneNum;
     }
 
     @Override

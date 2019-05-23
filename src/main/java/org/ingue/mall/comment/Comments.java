@@ -3,14 +3,11 @@ package org.ingue.mall.comment;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
 import org.ingue.mall.base.entity.BaseEntity;
 import org.ingue.mall.user.Users;
 import org.ingue.mall.posting.domain.Postings;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
 
 @Entity
 @Table

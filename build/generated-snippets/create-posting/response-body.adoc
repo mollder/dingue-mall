@@ -1,8 +1,8 @@
 [source,options="nowrap"]
 ----
 {
-  "createAt" : "2019-05-23T14:45:22.198",
-  "updateAt" : "2019-05-23T14:45:22.198",
+  "createAt" : "2019-05-23T16:03:04.99",
+  "updateAt" : "2019-05-23T16:03:04.99",
   "developer" : "ingue",
   "postingId" : 35,
   "postingTitle" : "테스트제목",

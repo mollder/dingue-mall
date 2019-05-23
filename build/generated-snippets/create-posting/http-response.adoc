@@ -9,11 +9,11 @@ Cache-Control: no-cache, no-store, max-age=0, must-revalidate
 Pragma: no-cache
 Expires: 0
 X-Frame-Options: DENY
-Content-Length: 307
+Content-Length: 305
 
 {
-  "createAt" : "2019-05-23T14:45:22.198",
-  "updateAt" : "2019-05-23T14:45:22.198",
+  "createAt" : "2019-05-23T16:03:04.99",
+  "updateAt" : "2019-05-23T16:03:04.99",
   "developer" : "ingue",
   "postingId" : 35,
   "postingTitle" : "테스트제목",
