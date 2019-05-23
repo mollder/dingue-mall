@@ -13,15 +13,31 @@ Content-Length: 5421
 {
   "_embedded" : {
     "postingsList" : [ {
-      "postingId" : 20,
+      "postingId" : 21,
       "postingTitle" : "테스트제목19",
       "postingContent" : "테스트내용19",
       "postingRecommend" : 0,
       "boardName" : null,
       "commentsSet" : [ ],
       "user" : null,
-      "createAt" : "2019-05-22T21:38:17",
-      "updateAt" : "2019-05-22T21:38:17",
+      "createAt" : "2019-05-23T12:09:26",
+      "updateAt" : "2019-05-23T12:09:26",
+      "developer" : null,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/api/postings/21"
+        }
+      }
+    }, {
+      "postingId" : 20,
+      "postingTitle" : "테스트제목18",
+      "postingContent" : "테스트내용18",
+      "postingRecommend" : 0,
+      "boardName" : null,
+      "commentsSet" : [ ],
+      "user" : null,
+      "createAt" : "2019-05-23T12:09:26",
+      "updateAt" : "2019-05-23T12:09:26",
       "developer" : null,
       "_links" : {
         "self" : {
@@ -30,14 +46,14 @@ Content-Length: 5421
       }
     }, {
       "postingId" : 19,
-      "postingTitle" : "테스트제목18",
-      "postingContent" : "테스트내용18",
+      "postingTitle" : "테스트제목17",
+      "postingContent" : "테스트내용17",
       "postingRecommend" : 0,
       "boardName" : null,
       "commentsSet" : [ ],
       "user" : null,
-      "createAt" : "2019-05-22T21:38:17",
-      "updateAt" : "2019-05-22T21:38:17",
+      "createAt" : "2019-05-23T12:09:26",
+      "updateAt" : "2019-05-23T12:09:26",
       "developer" : null,
       "_links" : {
         "self" : {
@@ -46,14 +62,14 @@ Content-Length: 5421
       }
     }, {
       "postingId" : 18,
-      "postingTitle" : "테스트제목17",
-      "postingContent" : "테스트내용17",
+      "postingTitle" : "테스트제목16",
+      "postingContent" : "테스트내용16",
       "postingRecommend" : 0,
       "boardName" : null,
       "commentsSet" : [ ],
       "user" : null,
-      "createAt" : "2019-05-22T21:38:17",
-      "updateAt" : "2019-05-22T21:38:17",
+      "createAt" : "2019-05-23T12:09:26",
+      "updateAt" : "2019-05-23T12:09:26",
       "developer" : null,
       "_links" : {
         "self" : {
@@ -62,14 +78,14 @@ Content-Length: 5421
       }
     }, {
       "postingId" : 17,
-      "postingTitle" : "테스트제목16",
-      "postingContent" : "테스트내용16",
+      "postingTitle" : "테스트제목15",
+      "postingContent" : "테스트내용15",
       "postingRecommend" : 0,
       "boardName" : null,
       "commentsSet" : [ ],
       "user" : null,
-      "createAt" : "2019-05-22T21:38:17",
-      "updateAt" : "2019-05-22T21:38:17",
+      "createAt" : "2019-05-23T12:09:26",
+      "updateAt" : "2019-05-23T12:09:26",
       "developer" : null,
       "_links" : {
         "self" : {
@@ -78,14 +94,14 @@ Content-Length: 5421
       }
     }, {
       "postingId" : 16,
-      "postingTitle" : "테스트제목15",
-      "postingContent" : "테스트내용15",
+      "postingTitle" : "테스트제목14",
+      "postingContent" : "테스트내용14",
       "postingRecommend" : 0,
       "boardName" : null,
       "commentsSet" : [ ],
       "user" : null,
-      "createAt" : "2019-05-22T21:38:17",
-      "updateAt" : "2019-05-22T21:38:17",
+      "createAt" : "2019-05-23T12:09:26",
+      "updateAt" : "2019-05-23T12:09:26",
       "developer" : null,
       "_links" : {
         "self" : {
@@ -94,14 +110,14 @@ Content-Length: 5421
       }
     }, {
       "postingId" : 15,
-      "postingTitle" : "테스트제목14",
-      "postingContent" : "테스트내용14",
+      "postingTitle" : "테스트제목13",
+      "postingContent" : "테스트내용13",
       "postingRecommend" : 0,
       "boardName" : null,
       "commentsSet" : [ ],
       "user" : null,
-      "createAt" : "2019-05-22T21:38:17",
-      "updateAt" : "2019-05-22T21:38:17",
+      "createAt" : "2019-05-23T12:09:26",
+      "updateAt" : "2019-05-23T12:09:26",
       "developer" : null,
       "_links" : {
         "self" : {
@@ -110,14 +126,14 @@ Content-Length: 5421
       }
     }, {
       "postingId" : 14,
-      "postingTitle" : "테스트제목13",
-      "postingContent" : "테스트내용13",
+      "postingTitle" : "테스트제목12",
+      "postingContent" : "테스트내용12",
       "postingRecommend" : 0,
       "boardName" : null,
       "commentsSet" : [ ],
       "user" : null,
-      "createAt" : "2019-05-22T21:38:17",
-      "updateAt" : "2019-05-22T21:38:17",
+      "createAt" : "2019-05-23T12:09:26",
+      "updateAt" : "2019-05-23T12:09:26",
       "developer" : null,
       "_links" : {
         "self" : {
@@ -126,14 +142,14 @@ Content-Length: 5421
       }
     }, {
       "postingId" : 13,
-      "postingTitle" : "테스트제목12",
-      "postingContent" : "테스트내용12",
+      "postingTitle" : "테스트제목11",
+      "postingContent" : "테스트내용11",
       "postingRecommend" : 0,
       "boardName" : null,
       "commentsSet" : [ ],
       "user" : null,
-      "createAt" : "2019-05-22T21:38:17",
-      "updateAt" : "2019-05-22T21:38:17",
+      "createAt" : "2019-05-23T12:09:26",
+      "updateAt" : "2019-05-23T12:09:26",
       "developer" : null,
       "_links" : {
         "self" : {
@@ -142,34 +158,18 @@ Content-Length: 5421
       }
     }, {
       "postingId" : 12,
-      "postingTitle" : "테스트제목11",
-      "postingContent" : "테스트내용11",
-      "postingRecommend" : 0,
-      "boardName" : null,
-      "commentsSet" : [ ],
-      "user" : null,
-      "createAt" : "2019-05-22T21:38:17",
-      "updateAt" : "2019-05-22T21:38:17",
-      "developer" : null,
-      "_links" : {
-        "self" : {
-          "href" : "http://localhost:8080/api/postings/12"
-        }
-      }
-    }, {
-      "postingId" : 11,
       "postingTitle" : "테스트제목10",
       "postingContent" : "테스트내용10",
       "postingRecommend" : 0,
       "boardName" : null,
       "commentsSet" : [ ],
       "user" : null,
-      "createAt" : "2019-05-22T21:38:17",
-      "updateAt" : "2019-05-22T21:38:17",
+      "createAt" : "2019-05-23T12:09:26",
+      "updateAt" : "2019-05-23T12:09:26",
       "developer" : null,
       "_links" : {
         "self" : {
-          "href" : "http://localhost:8080/api/postings/11"
+          "href" : "http://localhost:8080/api/postings/12"
         }
       }
     } ]
@@ -188,13 +188,13 @@ Content-Length: 5421
       "href" : "http://localhost:8080/api/postings?page=2&size=10&sort=postingId,desc"
     },
     "last" : {
-      "href" : "http://localhost:8080/api/postings?page=2&size=10&sort=postingId,desc"
+      "href" : "http://localhost:8080/api/postings?page=3&size=10&sort=postingId,desc"
     }
   },
   "page" : {
     "size" : 10,
-    "totalElements" : 30,
-    "totalPages" : 3,
+    "totalElements" : 31,
+    "totalPages" : 4,
     "number" : 1
   }
 }

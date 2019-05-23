@@ -3,6 +3,7 @@ package org.ingue.mall.controller;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.ingue.mall.common.RestDocsConfiguration;
 import org.ingue.mall.config.common.TestDescription;
+import org.ingue.mall.config.common.mapper.PostingMapper;
 import org.ingue.mall.posting.Board;
 import org.ingue.mall.posting.controller.dto.PostingDto;
 import org.ingue.mall.posting.domain.Postings;
@@ -19,19 +20,17 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
-
-import java.time.LocalDateTime;
+import java.util.Optional;
 import java.util.stream.IntStream;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.Matchers.not;
 import static org.springframework.restdocs.headers.HeaderDocumentation.headerWithName;
 import static org.springframework.restdocs.headers.HeaderDocumentation.requestHeaders;
 import static org.springframework.restdocs.headers.HeaderDocumentation.responseHeaders;
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
 import static org.springframework.restdocs.payload.PayloadDocumentation.*;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -51,6 +50,9 @@ public class PostingControllerTests {
 
     @Autowired
     PostingRepository postingRepository;
+
+    @Autowired
+    PostingMapper postingMapper;
 
     @Test
     @TestDescription("유저가 글을 게시판에 올릴 때 성공적으로 글이 생성되는지 확인하는 테스트")
@@ -171,7 +173,7 @@ public class PostingControllerTests {
     }
 
     @Test
-    @TestDescription("글 30개 생성 후 pageing 해서 가져오는 테스트")
+    @TestDescription("글 30개 생성 후 두번째 페이지에 10개 글을 가져올 때 성공적으로 글과 페이지 정보가 들어있어야 함")
     public void queryPostings() throws Exception {
         //Given
         IntStream.range(0, 30).forEach(this::generatePosting);
@@ -184,10 +186,9 @@ public class PostingControllerTests {
                 )
                 .andDo(print())
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("page").exists())
-                .andExpect(jsonPath("_embedded.postingsList[0]._links.self").exists())
-                .andExpect(jsonPath("_links.self").exists())
-                .andDo(document("query-postings"))
+                .andExpect(jsonPath("pageable").exists())
+                .andExpect(jsonPath("pageable.pageSize").value(10))
+                .andExpect(jsonPath("pageable.pageNumber").value(1))
         ;
     }
 
@@ -199,6 +200,7 @@ public class PostingControllerTests {
 
         //When & then
         this.mockMvc.perform(get("/api/postings/{id}", posting.getPostingId()))
+                .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("postingId").exists())
                 .andExpect(jsonPath("postingContent").exists())
@@ -217,9 +219,9 @@ public class PostingControllerTests {
 
         //When & then
         this.mockMvc.perform(get("/api/postings/{id}", -1))
+                .andDo(print())
                 .andExpect(status().isNotFound())
         ;
-
     }
 
     @Test
@@ -242,7 +244,7 @@ public class PostingControllerTests {
                 .user(postings.getUser())
                 .build();
 
-        this.mockMvc.perform(put("/api/postings")
+        this.mockMvc.perform(put("/api/postings/{id}", postings.getPostingId())
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
                 .content(objectMapper.writeValueAsBytes(updatePosting))
                 .accept(MediaTypes.HAL_JSON_UTF8))
@@ -254,6 +256,45 @@ public class PostingControllerTests {
                 .andExpect(jsonPath("postingRecommend").value(postings.getPostingRecommend()))
                 .andExpect(jsonPath("updateAt").value(not(postings.getUpdateAt())))
                 ;
+    }
+
+    @Test
+    @TestDescription("저장해둔 글을 삭제했을 때 성공적으로 삭제되는지 되어야 함")
+    public void deletePosting() throws Exception {
+        PostingDto dto = PostingDto.builder()
+                .postingTitle("테스트제목")
+                .postingContent("테스트내용")
+                .build();
+
+        Postings posting = this.postingMapper.mappingDto(dto);
+
+        this.postingRepository.save(posting);
+
+        this.mockMvc.perform(delete("/api/postings/{id}", posting.getPostingId()))
+                .andDo(print())
+                .andExpect(status().isOk());
+
+        Optional<Postings> optionalPosting = this.postingRepository.findById(posting.getPostingId());
+
+        assertThat(optionalPosting.isPresent()).isFalse();
+    }
+
+    @Test
+    @TestDescription("없는 글을 삭제하려고 하면 404가 나와야 함")
+    public void deletePosting404() throws Exception {
+        Optional<Postings> optionalPosting = this.postingRepository.findById(Long.MAX_VALUE);
+
+        assertThat(optionalPosting.isPresent()).isFalse();
+
+        this.mockMvc.perform(delete("/api/postings/{id}", Long.MAX_VALUE))
+                .andDo(print())
+                .andExpect(status().isNotFound());
+    }
+
+    @Test
+    @TestDescription("글을 추천했을 때 정상적으로 추천수가 1 올라가야 함")
+    public void recommendPosting() {
+
     }
 
     private Postings generatePosting(int i) {

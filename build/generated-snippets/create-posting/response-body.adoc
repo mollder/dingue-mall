@@ -1,29 +1,15 @@
 [source,options="nowrap"]
 ----
 {
-  "postingId" : 33,
+  "postingId" : 35,
   "postingTitle" : "테스트제목",
   "postingContent" : "테스트글",
   "postingRecommend" : 0,
   "boardName" : null,
   "commentsSet" : null,
   "user" : null,
-  "createAt" : "2019-05-22T21:38:18.241",
-  "updateAt" : "2019-05-22T21:38:18.241",
-  "developer" : null,
-  "_links" : {
-    "self" : {
-      "href" : "http://localhost:8080/api/postings/33"
-    },
-    "query-postings" : {
-      "href" : "http://localhost:8080/api/postings"
-    },
-    "update-postings" : {
-      "href" : "http://localhost:8080/api/postings/33"
-    },
-    "delete-postings" : {
-      "href" : "http://localhost:8080/api/postings/33"
-    }
-  }
+  "createAt" : "2019-05-23T12:23:09.318",
+  "updateAt" : "2019-05-23T12:23:09.318",
+  "developer" : null
 }
 ----

@@ -7,7 +7,7 @@ import org.springframework.hateoas.Resource;
 
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
 
-//BeanSerialization 기본적으로 이름을 사용
+//Spring HATEOAS 적용을 위한 클래스
 public class PostingResource extends Resource<Postings> {
 
     public PostingResource(Postings posting, Link... links) {
