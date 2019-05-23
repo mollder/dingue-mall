@@ -1,20 +1,14 @@
 package org.ingue.mall.posting.controller;
 
-import com.google.common.collect.Lists;
 import lombok.RequiredArgsConstructor;
 import org.ingue.mall.config.common.mapper.PostingMapper;
 import org.ingue.mall.posting.controller.dto.PostingDto;
 import org.ingue.mall.posting.PostingRepository;
-import org.ingue.mall.posting.controller.domainResource.PostingResource;
 import org.ingue.mall.posting.domain.Postings;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.web.PagedResourcesAssembler;
 import org.springframework.hateoas.MediaTypes;
-import org.springframework.hateoas.PagedResources;
-import org.springframework.hateoas.Resource;
 import org.springframework.hateoas.mvc.ControllerLinkBuilder;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
@@ -22,7 +16,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.net.URI;
-import java.util.List;
 import java.util.Optional;
 
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
@@ -102,5 +95,4 @@ public class PostingController {
 
         return ResponseEntity.ok().build();
     }
-
 }

@@ -236,10 +236,7 @@ public class PostingControllerTests {
                 .postingTitle("다른제목")
                 .postingContent("다른내용")
                 .postingRecommend(postings.getPostingRecommend())
-                .updateAt(postings.getUpdateAt())
                 .boardName(postings.getBoardName())
-                .createAt(postings.getCreateAt())
-                .developer(postings.getDeveloper())
                 .commentsSet(postings.getCommentsSet())
                 .user(postings.getUser())
                 .build();

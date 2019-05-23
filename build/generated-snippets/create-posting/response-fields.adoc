@@ -18,11 +18,11 @@
 |recommendCount of new posting
 
 |`+boardName+`
-|`+Null+`
+|`+String+`
 |boardName of new posting
 
 |`+commentsSet+`
-|`+Null+`
+|`+Array+`
 |comments in the new posting
 
 |`+user+`
@@ -38,7 +38,7 @@
 |time updated for new posting
 
 |`+developer+`
-|`+Null+`
+|`+String+`
 |application developer name
 
 |===

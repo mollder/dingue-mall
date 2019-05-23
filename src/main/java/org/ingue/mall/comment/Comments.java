@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.ingue.mall.base.entity.BaseEntity;
 import org.ingue.mall.user.Users;
 import org.ingue.mall.posting.domain.Postings;
 
@@ -15,8 +16,8 @@ import java.time.LocalDateTime;
 @Table
 @NoArgsConstructor
 @Getter
-@EqualsAndHashCode(of = "commentId")
-public class Comments {
+@EqualsAndHashCode(of = "commentId", callSuper = false)
+public class Comments extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,20 +33,8 @@ public class Comments {
     @ManyToOne
     private Users user;
 
-    @CreationTimestamp
-    @Column(nullable = false, updatable = false)
-    private LocalDateTime createAt;
-
-    @UpdateTimestamp
-    @Column(nullable = false)
-    private LocalDateTime updateAt;
-
-    @Column(nullable = false)
-    private String developer;
-
     public Comments(String commentContent) {
         this.commentContent = commentContent;
-        developer = "ingue";
     }
 
     public void setPosting(Postings posting) {

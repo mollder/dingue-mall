@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.ingue.mall.base.entity.BaseEntity;
 import org.ingue.mall.comment.Comments;
 import org.ingue.mall.posting.domain.Postings;
 import org.springframework.security.core.GrantedAuthority;
@@ -20,8 +21,8 @@ import java.util.*;
 @Entity
 @Getter
 @NoArgsConstructor
-@EqualsAndHashCode(of = "userId")
-public class Users implements UserDetails {
+@EqualsAndHashCode(of = "userId", callSuper = false)
+public class Users extends BaseEntity implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -40,20 +41,12 @@ public class Users implements UserDetails {
     private String userPhoneNum;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @Builder.Default
     private Set<Postings> postingsSet = Sets.newHashSet();
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @Builder.Default
     private Set<Comments> commentsSet = Sets.newHashSet();
-
-    @CreationTimestamp
-    @Column(nullable = false, updatable = false)
-    private LocalDateTime createAt;
-
-    @UpdateTimestamp
-    @Column(nullable = false)
-    private LocalDateTime updateAt;
-
-    private String developer;
 
     public void addPosting(Postings posting) {
         this.getPostingsSet().add(posting);
@@ -70,7 +63,6 @@ public class Users implements UserDetails {
         this.userPassword = userPassword;
         this.userNickName = userNickName;
         this.userPhoneNum = userPhoneNum;
-        developer = "ingue";
     }
 
     @Override
