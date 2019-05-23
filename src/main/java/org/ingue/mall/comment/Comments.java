@@ -1,8 +1,6 @@
 package org.ingue.mall.comment;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.ingue.mall.base.entity.BaseEntity;
 import org.ingue.mall.user.Users;
 import org.ingue.mall.posting.domain.Postings;
@@ -10,8 +8,9 @@ import org.ingue.mall.posting.domain.Postings;
 import javax.persistence.*;
 
 @Entity
-@Table
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Getter
 @EqualsAndHashCode(of = "commentId", callSuper = false)
 public class Comments extends BaseEntity {

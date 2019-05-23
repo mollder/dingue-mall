@@ -95,4 +95,20 @@ public class PostingController {
 
         return ResponseEntity.ok().build();
     }
+
+    @PatchMapping("/{id}")
+    public ResponseEntity updatePostingRecommend(@PathVariable Long id, @RequestParam Integer postingRecommend) {
+        Optional<Postings> optionalPosting = this.postingRepository.findById(id);
+
+        if(!optionalPosting.isPresent()) {
+            return ResponseEntity.notFound().build();
+        }
+
+        Postings posting = optionalPosting.get();
+        posting.recommendPosting();
+
+        Postings updatePosting = this.postingRepository.save(posting);
+
+        return ResponseEntity.ok(updatePosting);
+    }
 }

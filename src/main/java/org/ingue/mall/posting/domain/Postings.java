@@ -1,5 +1,6 @@
 package org.ingue.mall.posting.domain;
 
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.google.common.collect.Sets;
 import lombok.*;
 import org.ingue.mall.base.entity.BaseEntity;
@@ -16,6 +17,8 @@ import java.util.Set;
 @AllArgsConstructor
 @Builder
 @EqualsAndHashCode(of = "postingId", callSuper = false)
+@JsonPropertyOrder({"postingId", "postingTitle", "postingContent", "postingRecommend",
+        "boardName", "commentsSet", "user", "createAt", "updateAt", "developer"})
 public class Postings extends BaseEntity {
 
     @Id
@@ -47,5 +50,9 @@ public class Postings extends BaseEntity {
     public void addComments(Comments comment) {
         this.getCommentsSet().add(comment);
         comment.setPosting(this);
+    }
+
+    public void recommendPosting() {
+        this.postingRecommend = this.postingRecommend+1;
     }
 }

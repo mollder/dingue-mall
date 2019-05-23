@@ -214,11 +214,7 @@ public class PostingControllerTests {
     @Test
     @TestDescription("없는 글을 요청했을 때 404 발생")
     public void getPosting404() throws Exception {
-        //Given
-        Postings posting = this.generatePosting(1);
-
-        //When & then
-        this.mockMvc.perform(get("/api/postings/{id}", -1))
+        this.mockMvc.perform(get("/api/postings/{id}", Long.MAX_VALUE))
                 .andDo(print())
                 .andExpect(status().isNotFound())
         ;
@@ -290,8 +286,33 @@ public class PostingControllerTests {
 
     @Test
     @TestDescription("글을 추천했을 때 정상적으로 추천수가 1 올라가야 함")
-    public void recommendPosting() {
+    public void recommendPosting() throws Exception {
+        PostingDto postingDto = PostingDto.builder()
+                .postingContent("테스트내용")
+                .postingTitle("테스트제목")
+                .build();
 
+        Postings posting = postingMapper.mappingDto(postingDto);
+
+        Postings newPosting = this.postingRepository.save(posting);
+
+        this.mockMvc.perform(patch("/api/postings/{id}", newPosting.getPostingId())
+                            .param("postingRecommend", String.valueOf(newPosting.getPostingRecommend()))
+                            .accept(MediaTypes.HAL_JSON_UTF8))
+                            .andDo(print())
+                            .andExpect(status().isOk())
+                            .andExpect(jsonPath("postingRecommend").value(newPosting.getPostingRecommend()+1))
+                            .andExpect(jsonPath("postingId").value(newPosting.getPostingId()));
+    }
+
+    @Test
+    @TestDescription("없는 글을 추천하면 404에러 발생")
+    public void recommendPosting404() throws Exception {
+        this.mockMvc.perform(patch("/api/postings/{id}", Long.MAX_VALUE)
+                .param("postingRecommend", "0")
+                .accept(MediaTypes.HAL_JSON_UTF8))
+                .andDo(print())
+                .andExpect(status().isNotFound());
     }
 
     private Postings generatePosting(int i) {
