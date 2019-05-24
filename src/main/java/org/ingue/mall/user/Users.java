@@ -2,10 +2,8 @@ package org.ingue.mall.user;
 
 import com.google.common.collect.Sets;
 import lombok.*;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
 import org.ingue.mall.base.entity.BaseEntity;
-import org.ingue.mall.comment.Comments;
+import org.ingue.mall.comment.domain.Comments;
 import org.ingue.mall.posting.domain.Postings;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

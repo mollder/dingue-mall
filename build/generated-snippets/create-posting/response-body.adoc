@@ -8,8 +8,8 @@
   "boardName" : "USER",
   "commentsSet" : [ ],
   "user" : null,
-  "createAt" : "2019-05-23T16:53:23.735",
-  "updateAt" : "2019-05-23T16:53:23.735",
+  "createAt" : "2019-05-24T16:07:04.946",
+  "updateAt" : "2019-05-24T16:07:04.946",
   "developer" : "ingue"
 }
 ----

@@ -2,7 +2,7 @@
 ----
 HTTP/1.1 201 Created
 Location: http://localhost:8080/api/postings/36
-Content-Type: application/hal+json;charset=UTF-8
+Content-Type: application/json;charset=UTF-8
 X-Content-Type-Options: nosniff
 X-XSS-Protection: 1; mode=block
 Cache-Control: no-cache, no-store, max-age=0, must-revalidate
@@ -19,8 +19,8 @@ Content-Length: 307
   "boardName" : "USER",
   "commentsSet" : [ ],
   "user" : null,
-  "createAt" : "2019-05-23T16:53:23.735",
-  "updateAt" : "2019-05-23T16:53:23.735",
+  "createAt" : "2019-05-24T16:07:04.946",
+  "updateAt" : "2019-05-24T16:07:04.946",
   "developer" : "ingue"
 }
 ----

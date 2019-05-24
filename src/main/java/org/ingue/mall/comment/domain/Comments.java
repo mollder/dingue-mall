@@ -1,4 +1,4 @@
-package org.ingue.mall.comment;
+package org.ingue.mall.comment.domain;
 
 import lombok.*;
 import org.ingue.mall.base.entity.BaseEntity;

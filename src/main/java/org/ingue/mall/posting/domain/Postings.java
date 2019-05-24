@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.google.common.collect.Sets;
 import lombok.*;
 import org.ingue.mall.base.entity.BaseEntity;
-import org.ingue.mall.comment.Comments;
+import org.ingue.mall.comment.domain.Comments;
 import org.ingue.mall.posting.Board;
 import org.ingue.mall.user.Users;
 

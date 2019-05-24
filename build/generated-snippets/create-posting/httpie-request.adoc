@@ -5,5 +5,5 @@ $ echo '{
   "postingContent" : "테스트글"
 }' | http POST 'http://localhost:8080/api/postings' \
     'Content-Type:application/json;charset=UTF-8' \
-    'Accept:application/hal+json;charset=UTF-8'
+    'Accept:application/json;charset=UTF-8'
 ----

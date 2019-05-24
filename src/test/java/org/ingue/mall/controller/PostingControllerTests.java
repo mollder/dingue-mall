@@ -66,7 +66,7 @@ public class PostingControllerTests {
         mockMvc.perform(post("/api/postings")
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
                 .content(objectMapper.writeValueAsBytes(posting))
-                .accept(MediaTypes.HAL_JSON_UTF8))
+                .accept(MediaType.APPLICATION_JSON_UTF8))
                 .andDo(print())
                 .andExpect(status().isCreated())
                 .andExpect(jsonPath("postingId").exists())
@@ -116,7 +116,7 @@ public class PostingControllerTests {
         mockMvc.perform(post("/api/postings")
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
                 .content(objectMapper.writeValueAsBytes(posting))
-                .accept(MediaTypes.HAL_JSON_UTF8))
+                .accept(MediaType.APPLICATION_JSON_UTF8))
                 .andDo(print())
                 .andExpect(status().isBadRequest());
     }
@@ -132,7 +132,7 @@ public class PostingControllerTests {
         mockMvc.perform(post("/api/postings")
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
                 .content(objectMapper.writeValueAsBytes(posting))
-                .accept(MediaTypes.HAL_JSON_UTF8))
+                .accept(MediaType.APPLICATION_JSON_UTF8))
                 .andDo(print())
                 .andExpect(status().isBadRequest())
                 .andExpect(jsonPath("$[0].objectName").exists())
@@ -147,7 +147,7 @@ public class PostingControllerTests {
         mockMvc.perform(post("/api/postings")
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
                 .content(objectMapper.writeValueAsBytes(posting))
-                .accept(MediaTypes.HAL_JSON_UTF8))
+                .accept(MediaType.APPLICATION_JSON_UTF8))
                 .andDo(print())
                 .andExpect(status().isBadRequest())
                 .andExpect(jsonPath("$[0].objectName").exists())
@@ -240,7 +240,7 @@ public class PostingControllerTests {
         this.mockMvc.perform(put("/api/postings/{id}", postings.getPostingId())
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
                 .content(objectMapper.writeValueAsBytes(updatePosting))
-                .accept(MediaTypes.HAL_JSON_UTF8))
+                .accept(MediaType.APPLICATION_JSON_UTF8))
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("postingId").value(postings.getPostingId()))
@@ -298,7 +298,7 @@ public class PostingControllerTests {
 
         this.mockMvc.perform(patch("/api/postings/{id}", newPosting.getPostingId())
                             .param("postingRecommend", String.valueOf(newPosting.getPostingRecommend()))
-                            .accept(MediaTypes.HAL_JSON_UTF8))
+                            .accept(MediaType.APPLICATION_JSON_UTF8))
                             .andDo(print())
                             .andExpect(status().isOk())
                             .andExpect(jsonPath("postingRecommend").value(newPosting.getPostingRecommend()+1))
@@ -310,7 +310,7 @@ public class PostingControllerTests {
     public void recommendPosting404() throws Exception {
         this.mockMvc.perform(patch("/api/postings/{id}", Long.MAX_VALUE)
                 .param("postingRecommend", "0")
-                .accept(MediaTypes.HAL_JSON_UTF8))
+                .accept(MediaType.APPLICATION_JSON_UTF8))
                 .andDo(print())
                 .andExpect(status().isNotFound());
     }
