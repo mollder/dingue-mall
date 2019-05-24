@@ -1,5 +1,7 @@
 package org.ingue.mall.posting.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.google.common.collect.Sets;
 import lombok.*;
@@ -38,6 +40,7 @@ public class Postings extends BaseEntity {
 
     @OneToMany(mappedBy = "posting", cascade = CascadeType.ALL)
     @Builder.Default
+    @JsonBackReference
     private Set<Comments> commentsSet = Sets.newHashSet();
 
     @ManyToOne

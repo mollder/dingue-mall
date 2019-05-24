@@ -20,8 +20,10 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringRunner.class)
@@ -48,7 +50,7 @@ public class CommentsControllerTests {
     CommentMapper commentMapper;
 
     @Test
-    @TestDescription("코멘트를 생성했을 때 성공적으로 코멘트가 만들어 져야 함")
+    @TestDescription("코멘트를 생성했을 때 성공적으로 올바른 댓글이 만들어 져야 함")
     public void createComment() throws Exception {
         PostingDto postingDto = PostingDto.builder()
                 .postingTitle("테스트제목")
@@ -67,6 +69,22 @@ public class CommentsControllerTests {
                 .content(objectMapper.writeValueAsBytes(commentDto))
                 .accept(MediaType.APPLICATION_JSON_UTF8))
                 .andDo(print())
-                .andExpect(status().isCreated());
+                .andExpect(status().isCreated())
+                .andExpect(jsonPath("posting").exists())
+        ;
+    }
+
+    @Test
+    @TestDescription("댓글을 생성할 때 없는 글에 댓글을 달려고 시도하면 404")
+    public void createPosting_badInput_404() throws Exception {
+        CommentDto commentDto = new CommentDto();
+        commentDto.setCommentContent("테스트댓글내용");
+
+        this.mockMvc.perform(post("/api/postings/{postingId}/comments", Long.MAX_VALUE)
+                .contentType(MediaType.APPLICATION_JSON_UTF8)
+                .content(objectMapper.writeValueAsBytes(commentDto))
+                .accept(MediaType.APPLICATION_JSON_UTF8))
+                .andDo(print())
+                .andExpect(status().isNotFound());
     }
 }

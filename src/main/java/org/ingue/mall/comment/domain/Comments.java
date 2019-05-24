@@ -1,5 +1,8 @@
 package org.ingue.mall.comment.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import lombok.*;
 import org.ingue.mall.base.entity.BaseEntity;
 import org.ingue.mall.user.Users;
@@ -13,6 +16,8 @@ import javax.persistence.*;
 @Builder
 @Getter
 @EqualsAndHashCode(of = "commentId", callSuper = false)
+@JsonPropertyOrder({"commentId", "commentContent", "commentRecommend", "posting",
+        "user", "createAt", "updateAt", "developer"})
 public class Comments extends BaseEntity {
 
     @Id
@@ -24,6 +29,7 @@ public class Comments extends BaseEntity {
     private int commentRecommend;
 
     @ManyToOne
+    @JsonManagedReference
     private Postings posting;
 
     @ManyToOne
@@ -35,6 +41,7 @@ public class Comments extends BaseEntity {
 
     public void setPosting(Postings posting) {
         this.posting = posting;
+        posting.getCommentsSet().add(this);
     }
 
     public void setUser(Users user) {
