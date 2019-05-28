@@ -15,6 +15,7 @@ import java.time.LocalDateTime;
 
 @MappedSuperclass
 @Getter
+//좀더 이름을 구체적으로 (클래스 이름에서 createAt이나 develop을 유추해낼 수가 없음 )
 public class BaseEntity implements Serializable {
 
     @CreationTimestamp

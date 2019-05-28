@@ -20,6 +20,9 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.web.filter.CharacterEncodingFilter;
+import sun.misc.CharacterEncoder;
+
 import java.util.Optional;
 import java.util.stream.IntStream;
 
@@ -64,9 +67,9 @@ public class PostingControllerTests {
                 .build();
 
         mockMvc.perform(post("/api/postings")
-                .contentType(MediaType.APPLICATION_JSON_UTF8)
+                .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsBytes(posting))
-                .accept(MediaType.APPLICATION_JSON_UTF8))
+                .accept(MediaType.APPLICATION_JSON))
                 .andDo(print())
                 .andExpect(status().isCreated())
                 .andExpect(jsonPath("postingId").exists())
@@ -75,32 +78,33 @@ public class PostingControllerTests {
                 .andExpect(jsonPath("postingRecommend").value(0))
                 .andExpect(jsonPath("createAt").exists())
                 .andExpect(jsonPath("updateAt").exists())
-        .andDo(document(
-                "create-posting",
-                requestHeaders(
-                        headerWithName(HttpHeaders.ACCEPT).description("accept header"),
-                        headerWithName(HttpHeaders.CONTENT_TYPE).description("content-type header")
-                ),
-                requestFields(
-                        fieldWithPath("postingTitle").description("title of new posting"),
-                        fieldWithPath("postingContent").description("content of new posting")
-                ),
-                responseHeaders(
-                        headerWithName(HttpHeaders.CONTENT_TYPE).description("content-type header")
-                ),
-                relaxedResponseFields(
-                        fieldWithPath("postingId").description("id of new posting"),
-                        fieldWithPath("postingTitle").description("title of new posting"),
-                        fieldWithPath("postingContent").description("content of new posting"),
-                        fieldWithPath("postingRecommend").description("recommendCount of new posting"),
-                        fieldWithPath("boardName").description("boardName of new posting"),
-                        fieldWithPath("commentsSet").description("comments in the new posting"),
-                        fieldWithPath("user").description("user who write this new posting"),
-                        fieldWithPath("createAt").description("time created for new posting"),
-                        fieldWithPath("updateAt").description("time updated for new posting"),
-                        fieldWithPath("developer").description("application developer name")
-                )
-        ));
+//        .andDo(document(
+//                "create-posting",
+//                requestHeaders(
+//                        headerWithName(HttpHeaders.ACCEPT).description("accept header"),
+//                        headerWithName(HttpHeaders.CONTENT_TYPE).description("content-type header")
+//                ),
+//                requestFields(
+//                        fieldWithPath("postingTitle").description("title of new posting"),
+//                        fieldWithPath("postingContent").description("content of new posting")
+//                ),
+//                responseHeaders(
+//                        headerWithName(HttpHeaders.CONTENT_TYPE).description("content-type header")
+//                ),
+//                relaxedResponseFields(
+//                        fieldWithPath("postingId").description("id of new posting"),
+//                        fieldWithPath("postingTitle").description("title of new posting"),
+//                        fieldWithPath("postingContent").description("content of new posting"),
+//                        fieldWithPath("postingRecommend").description("recommendCount of new posting"),
+//                        fieldWithPath("boardName").description("boardName of new posting"),
+//                        fieldWithPath("commentsSet").description("comments in the new posting"),
+//                        fieldWithPath("user").description("user who write this new posting"),
+//                        fieldWithPath("createAt").description("time created for new posting"),
+//                        fieldWithPath("updateAt").description("time updated for new posting"),
+//                        fieldWithPath("developer").description("application developer name")
+//                )
+//        ))
+        ;
     }
 
     @Test
@@ -114,9 +118,9 @@ public class PostingControllerTests {
                 .build();
 
         mockMvc.perform(post("/api/postings")
-                .contentType(MediaType.APPLICATION_JSON_UTF8)
+                .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsBytes(posting))
-                .accept(MediaType.APPLICATION_JSON_UTF8))
+                .accept(MediaType.APPLICATION_JSON))
                 .andDo(print())
                 .andExpect(status().isBadRequest());
     }
@@ -130,9 +134,9 @@ public class PostingControllerTests {
                 .build();
 
         mockMvc.perform(post("/api/postings")
-                .contentType(MediaType.APPLICATION_JSON_UTF8)
+                .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsBytes(posting))
-                .accept(MediaType.APPLICATION_JSON_UTF8))
+                .accept(MediaType.APPLICATION_JSON))
                 .andDo(print())
                 .andExpect(status().isBadRequest())
                 .andExpect(jsonPath("$[0].objectName").exists())
@@ -145,9 +149,9 @@ public class PostingControllerTests {
                 .build();
 
         mockMvc.perform(post("/api/postings")
-                .contentType(MediaType.APPLICATION_JSON_UTF8)
+                .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsBytes(posting))
-                .accept(MediaType.APPLICATION_JSON_UTF8))
+                .accept(MediaType.APPLICATION_JSON))
                 .andDo(print())
                 .andExpect(status().isBadRequest())
                 .andExpect(jsonPath("$[0].objectName").exists())
@@ -166,7 +170,7 @@ public class PostingControllerTests {
         postingRepository.save(postings);
 
         mockMvc.perform(get("/api/postings")
-                .contentType(MediaType.APPLICATION_JSON_UTF8)
+                .contentType(MediaType.APPLICATION_JSON)
                 .param("postingId", postings.getPostingId().toString()))
                 .andDo(print())
                 .andExpect(status().isOk());
@@ -238,9 +242,9 @@ public class PostingControllerTests {
                 .build();
 
         this.mockMvc.perform(put("/api/postings/{id}", postings.getPostingId())
-                .contentType(MediaType.APPLICATION_JSON_UTF8)
+                .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsBytes(updatePosting))
-                .accept(MediaType.APPLICATION_JSON_UTF8))
+                .accept(MediaType.APPLICATION_JSON))
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("postingId").value(postings.getPostingId()))
@@ -298,7 +302,7 @@ public class PostingControllerTests {
 
         this.mockMvc.perform(patch("/api/postings/{id}", newPosting.getPostingId())
                             .param("postingRecommend", String.valueOf(newPosting.getPostingRecommend()))
-                            .accept(MediaType.APPLICATION_JSON_UTF8))
+                            .accept(MediaType.APPLICATION_JSON))
                             .andDo(print())
                             .andExpect(status().isOk())
                             .andExpect(jsonPath("postingRecommend").value(newPosting.getPostingRecommend()+1))
@@ -310,7 +314,7 @@ public class PostingControllerTests {
     public void recommendPosting404() throws Exception {
         this.mockMvc.perform(patch("/api/postings/{id}", Long.MAX_VALUE)
                 .param("postingRecommend", "0")
-                .accept(MediaType.APPLICATION_JSON_UTF8))
+                .accept(MediaType.APPLICATION_JSON))
                 .andDo(print())
                 .andExpect(status().isNotFound());
     }

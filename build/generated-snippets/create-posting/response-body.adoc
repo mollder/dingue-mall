@@ -6,10 +6,9 @@
   "postingContent" : "테스트글",
   "postingRecommend" : 0,
   "boardName" : "USER",
-  "commentsSet" : [ ],
   "user" : null,
-  "createAt" : "2019-05-24T16:07:04.946",
-  "updateAt" : "2019-05-24T16:07:04.946",
+  "createAt" : "2019-05-28T14:42:29.053",
+  "updateAt" : "2019-05-28T14:42:29.053",
   "developer" : "ingue"
 }
 ----

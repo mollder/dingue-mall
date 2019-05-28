@@ -1,6 +1,5 @@
 plugins {
     id 'java'
-    id 'net.ltgt.apt' version '0.10'
     id "org.asciidoctor.convert" version "1.5.3"
     id "org.springframework.boot" version "2.1.0.RELEASE"
 }
@@ -42,8 +41,7 @@ dependencies {
     compile group: 'org.modelmapper', name: 'modelmapper', version: '2.3.3'
     compile group: 'mysql', name: 'mysql-connector-java', version: '8.0.13'
 
-    compileOnly 'org.projectlombok:lombok:1.18.4'
+    compileOnly 'org.projectlombok:lombok:1.18.8'
+//    annotationProcessor 'org.projectlombok:lombok:1.18.8'
     compile group: 'com.google.guava', name: 'guava', version: '27.0.1-jre'
-
-    apt 'org.projectlombok:lombok:1.18.4'
 }

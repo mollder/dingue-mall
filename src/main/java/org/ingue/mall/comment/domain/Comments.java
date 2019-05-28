@@ -29,7 +29,7 @@ public class Comments extends BaseEntity {
     private int commentRecommend;
 
     @ManyToOne
-    @JsonManagedReference
+    @JsonBackReference
     private Postings posting;
 
     @ManyToOne
